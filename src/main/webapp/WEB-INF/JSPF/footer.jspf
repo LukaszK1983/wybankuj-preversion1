@@ -1,5 +1,24 @@
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
-<footer>
+<footer class="page-footer font-small blue pt-4" style="background-color: #1C3752">
+    <div class="container-fluid text-center text-md-left">
 
+        <div class="row">
 
+            <div class="col-md-6 mt-md-0 mt-3">
+
+                <h5 class="text-uppercase">Informacje</h5>
+                <p style="font-size: 8px; text-align: justify;">Wybankuj.pl jest częścią Big Bee Sp. z o.o.</p>
+                <p style="font-size: 8px; text-align: justify;">Administratorem danych osobowych jest Big Bee Sp. z o.o. z siedzibą w Katowicach przy ul. Św. Jana 11/4. Pani/Pana dane osobowe w postaci imienia, nazwiska, nr telefonu, adresu e-mail będą przetwarzane w celu marketingu bezpośredniego produktów i usług własnych Administratora na podstawie prawnie uzasadnionego interesu Administratora w promocji produktów własnych. Przysługuje Pani/Panu prawo sprzeciwu wobec przetwarzania danych. Więcej informacji na temat przetwarzania danych osobowych dostępne jest w w/w placówce Administratora, pod numerem telefonu: 796373300 albo pod adresem e-mail biuro@moneyhouse.pl</p>
+
+            </div>
+
+            <hr class="clearfix w-100 d-md-none pb-3">
+
+            <div class="col-md-6 mt-md-0 mt-3">
+
+                <h5 class="text-uppercase">Odwiedź nas</h5>
+
+            </div>
+        </div>
+    </div>
 </footer>
