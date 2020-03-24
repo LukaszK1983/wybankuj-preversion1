@@ -511,6 +511,7 @@ footer {
 
 .nav-link:hover, .nav-link:focus {
     text-decoration: none;
+    color: #BF4042;
 }
 
 .nav-link.disabled {
@@ -822,6 +823,19 @@ footer {
     box-shadow: 2px 2px 2px 2px #BF4042;
 }
 
+.nav-link-header {
+    display: block;
+    padding: 0.5rem 1rem;
+    color: #1C3752;
+    font-size: 2vmax;
+    text-decoration: none;
+}
+
+.nav-link-header:hover {
+    text-decoration: none;
+    color: #BF4042;
+}
+
 /*choose simulation*/
 .h3-simulation {
     text-align: center;
@@ -832,8 +846,8 @@ footer {
 }
 
 .div-simulation-left {
-    width: 35%;
-    height: 30%;
+    width: 20vmax;
+    height: 15vmax;
     background-color: #19364D;
     border: 1px solid black;
     box-shadow: #3D78B8;
@@ -841,8 +855,8 @@ footer {
 }
 
 .div-simulation-right {
-    width: 35%;
-    height: 30%;
+    width: 20vmax;
+    height: 15vmax;
     background-color: #19364D;
     border: 1px solid black;
     box-shadow: #3D78B8;
@@ -853,7 +867,7 @@ footer {
     text-underline: none;
     text-decoration-line: none;
     color: #FFFFFF;
-    font-size: 2em;
+    font-size: 3vmax;
     text-align: center;
 }
 
@@ -861,7 +875,7 @@ footer {
     text-underline: none;
     text-decoration-line: none;
     color: #FFFFFF;
-    font-size: 2em;
+    font-size: 3vmax;
     text-align: center;
 }
 
@@ -899,7 +913,13 @@ footer {
 
 /*image above footer*/
 .div-image-footer {
-    width: 80%;
+    width: 80vmax;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.image-footer {
+    width: 80vmax;
     margin-left: auto;
     margin-right: auto;
     margin-bottom: 2%;

@@ -2,12 +2,12 @@
 <header>
     <nav class="navbar navbar-expand-sm bg-light navbar-light">
 
-        <a class="navbar-brand" href="#">
-            <img src="${pageContext.request.contextPath}/img/logo.png" alt="Wybankuj.pl" style="width: 20%">
+        <a class="navbar-brand" href="/">
+            <img src="${pageContext.request.contextPath}/img/logo.png" alt="Wybankuj.pl" style="width: 20vmax">
         </a>
 
-        <a class="nav-link" href="#" style="color: #1C3752">Gotówkowe</a>
-        <a class="nav-link" href="#" style="color: #1C3752">Hipoteczne</a>
+        <a class="nav-link-header" href="${pageContext.request.contextPath}/loanParameters">Kredyty Gotówkowe</a>
+        <a class="nav-link-header" href="${pageContext.request.contextPath}/mortgageParameters">Kredyty Hipoteczne</a>
 
     </nav>
 </header>

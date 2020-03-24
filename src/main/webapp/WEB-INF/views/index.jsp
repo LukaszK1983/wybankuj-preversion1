@@ -28,15 +28,16 @@
 
 <div class="container">
 
-    <div class="slider" id="slider">
+    <div class="slider" id="slider" style="width: 75vmax">
         <img src="<c:url value="/img/slider_image_1.jpg" />" alt="" class="img-slide" />
         <img src="<c:url value="/img/slider_image_2.jpg" />" alt="" class="img-slide" />
         <img src="<c:url value="/img/slider_image_3.jpg" />" alt="" class="img-slide" />
         <img src="<c:url value="/img/slider_image_4b.jpg" />" alt="" class="img-slide" />
     </div>
 
-    <div class="mx-auto" style="width: 60%; margin-top: 5%">
+    <div class="mx-auto" style="width: 60vmax; margin-top: 5%">
         <h3 class="h3-simulation">Wybankuj teraz najlepszą ofertę dla siebie</h3>
+        <br />
         <div id="loan" class="rounded shadow p-4 mb-4 div-simulation-left"><a href="${pageContext.request.contextPath}/loanParameters" class="a-simulation"><p class="p-simulation">Kredyt gotówkowy</p></a></div>
         <div id="mortgage" class="rounded shadow p-4 mb-4 div-simulation-right"><a href="${pageContext.request.contextPath}/mortgageParameters" class="a-simulation"><p class="p-simulation">Kredyt hipoteczny</p></a></div>
     </div>
@@ -64,7 +65,7 @@
 </div>
 
 <div class="div-image-footer">
-    <img src="${pageContext.request.contextPath}/img/slider_kredyty.jpg" alt="" />
+    <img src="${pageContext.request.contextPath}/img/slider_kredyty.jpg" alt="" class="image-footer" />
 </div>
 
 <div class="div-footer">
