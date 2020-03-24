@@ -837,6 +837,18 @@ footer {
 }
 
 /*choose simulation*/
+.div-boxes {
+    width: 60vmax;
+    margin-top: 5%;
+}
+
+@media (max-width: 800px) {
+    .div-boxes {
+        width: 60vmin;
+        margin-top: 5%;
+    }
+}
+
 .h3-simulation {
     text-align: center;
     font-weight: bold;
@@ -918,19 +930,26 @@ footer {
     margin-right: auto;
 }
 
+.image-footer {
+    width: 80vmax;
+    margin-left: auto;
+    margin-right: auto;
+    margin-bottom: 2%;
+}
+
 @media (max-width: 800px) {
     .div-image-footer {
         width: 80vmin;
         margin-left: auto;
         margin-right: auto;
     }
-}
 
-.image-footer {
-    width: 80vmax;
-    margin-left: auto;
-    margin-right: auto;
-    margin-bottom: 2%;
+    .image-footer {
+        width: 80vmin;
+        margin-left: auto;
+        margin-right: auto;
+        margin-bottom: 2%;
+    }
 }
 
 /*footer*/
