@@ -28,7 +28,7 @@
 
 <div class="container">
 
-    <div class="slider" id="slider" style="width: 75vmax">
+    <div class="slider" id="slider">
         <img src="<c:url value="/img/slider_image_1.jpg" />" alt="" class="img-slide" />
         <img src="<c:url value="/img/slider_image_2.jpg" />" alt="" class="img-slide" />
         <img src="<c:url value="/img/slider_image_3.jpg" />" alt="" class="img-slide" />

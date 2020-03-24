@@ -918,6 +918,14 @@ footer {
     margin-right: auto;
 }
 
+@media (max-width: 800px) {
+    .div-image-footer {
+        width: 80vmin;
+        margin-left: auto;
+        margin-right: auto;
+    }
+}
+
 .image-footer {
     width: 80vmax;
     margin-left: auto;
