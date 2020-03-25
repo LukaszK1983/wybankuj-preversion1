@@ -837,16 +837,16 @@ footer {
 }
 
 /*choose simulation*/
+.div-wybankuj {
+    border-top: 1px solid #BF4042;
+    border-bottom: 1px solid #BF4042;
+    padding-top: 1vmax;
+    padding-bottom: 1vmax;
+}
+
 .div-boxes {
     width: 60vmax;
     margin-top: 5%;
-}
-
-@media (max-width: 800px) {
-    .div-boxes {
-        width: 60vmin;
-        margin-top: 5%;
-    }
 }
 
 .h3-simulation {
@@ -896,6 +896,47 @@ footer {
     text-align: center;
 }
 
+@media (max-width: 800px) {
+    .div-boxes {
+        width: 60vmin;
+        margin-top: 5%;
+    }
+
+    .div-simulation-left {
+        width: 20vmin;
+        height: 15vmin;
+        background-color: #19364D;
+        border: 1px solid black;
+        box-shadow: #3D78B8;
+        float: left;
+    }
+
+    .div-simulation-right {
+        width: 20vmin;
+        height: 15vmin;
+        background-color: #19364D;
+        border: 1px solid black;
+        box-shadow: #3D78B8;
+        float: right;
+    }
+
+    .a-simulation {
+        text-underline: none;
+        text-decoration-line: none;
+        color: #FFFFFF;
+        font-size: 3vmin;
+        text-align: center;
+    }
+
+    .a-simulation:hover {
+        text-underline: none;
+        text-decoration-line: none;
+        color: #FFFFFF;
+        font-size: 3vmin;
+        text-align: center;
+    }
+}
+
 /*details of wybankuj*/
 .div-details {
     margin-top: 20%;
@@ -921,6 +962,28 @@ footer {
     color: #BF4042;
     margin-top: 2%;
     margin-bottom: 2%;
+    text-decoration: underline;
+}
+
+.div-details2 {
+    margin-top: 2%;
+    margin-bottom: 2%;
+    border-top: 1px solid #1C3752;
+    border-bottom: 1px solid #1C3752;
+    background-color: #F7F8FC;
+    box-shadow: 1px 1px 1px 1px #BF4042;
+}
+
+.span-details {
+    color: #BF4042;
+    font-weight: bolder;
+    text-decoration: none;
+}
+
+.span-details:hover {
+    color: #BF4042;
+    font-weight: bolder;
+    text-decoration: none;
 }
 
 /*image above footer*/
@@ -956,4 +1019,14 @@ footer {
 .div-footer {
     text-align: left;
     border: 0;
+}
+
+.a-footer {
+    color: #FFFFFF;
+    text-decoration: none;
+}
+
+.a-footer:hover {
+    color: #FFFFFF;
+    text-decoration: none;
 }
