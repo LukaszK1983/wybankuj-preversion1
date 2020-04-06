@@ -3,6 +3,7 @@ package pl.wybankuj.entity;
 import java.math.BigDecimal;
 
 public class UserMortgage {
+    private int cost;
     private int amount;
     private int creditPeriod;
     private int age;
@@ -13,13 +14,22 @@ public class UserMortgage {
     public UserMortgage() {
     }
 
-    public UserMortgage(int amount, int creditPeriod, int age, BigDecimal contributionPercent, String chooseServiceCharge, String chooseInsurance) {
+    public UserMortgage(int cost, int amount, int creditPeriod, int age, BigDecimal contributionPercent, String chooseServiceCharge, String chooseInsurance) {
+        this.cost = cost;
         this.amount = amount;
         this.creditPeriod = creditPeriod;
         this.age = age;
         this.contributionPercent = contributionPercent;
         this.chooseServiceCharge = chooseServiceCharge;
         this.chooseInsurance = chooseInsurance;
+    }
+
+    public int getCost() {
+        return cost;
+    }
+
+    public void setCost(int cost) {
+        this.cost = cost;
     }
 
     public int getAmount() {

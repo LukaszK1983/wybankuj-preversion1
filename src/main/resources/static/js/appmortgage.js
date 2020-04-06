@@ -106,8 +106,81 @@ $(document).ready(function () {
 
     button.on('click', function (e) {
         e.preventDefault();
+        const divCost = $('#div-cost-hipo').hide();
+        const divAmount = $('#div-amount-hipo').hide();
+        const divPeriod = $('#div-period-hipo').hide();
+        const divAge = $('#div-age-hipo').hide();
+        const divCharge = $('#div-charge-hipo').hide();
+        const divInsurance = $('#div-insurance-hipo').hide();
         check();
     });
 
     // --->
+
+    const imgCost = $('#img-cost');
+    const divCost = $('#div-cost-hipo').hide();
+    const imgAmount = $('#img-amount');
+    const divAmount = $('#div-amount-hipo').hide();
+    const imgPeriod = $('#img-period');
+    const divPeriod = $('#div-period-hipo').hide();
+    const imgAge = $('#img-age');
+    const divAge = $('#div-age-hipo').hide();
+    const imgCharge = $('#img-charge');
+    const divCharge = $('#div-charge-hipo').hide();
+    const imgInsurance = $('#img-insurance');
+    const divInsurance = $('#div-insurance-hipo').hide();
+
+    imgCost.on('click', function () {
+        divPeriod.hide();
+        divAge.hide();
+        divCharge.hide();
+        divInsurance.hide();
+        divAmount.hide();
+        divCost.show();
+    });
+
+    imgAmount.on('click', function () {
+        divPeriod.hide();
+        divAge.hide();
+        divCharge.hide();
+        divInsurance.hide();
+        divCost.hide();
+        divAmount.show();
+    });
+
+    imgPeriod.on('click', function () {
+        divAge.hide();
+        divCharge.hide();
+        divInsurance.hide();
+        divAmount.hide();
+        divCost.hide();
+        divPeriod.show();
+    });
+
+    imgAge.on('click', function () {
+        divPeriod.hide();
+        divCharge.hide();
+        divInsurance.hide();
+        divAmount.hide();
+        divCost.hide();
+        divAge.show();
+    });
+
+    imgCharge.on('click', function () {
+        divPeriod.hide();
+        divAge.hide();
+        divInsurance.hide();
+        divAmount.hide();
+        divCost.hide();
+        divCharge.show();
+    });
+
+    imgInsurance.on('click', function () {
+        divPeriod.hide();
+        divAge.hide();
+        divCharge.hide();
+        divAmount.hide();
+        divCost.hide();
+        divInsurance.show();
+    });
 });

@@ -962,7 +962,6 @@ footer {
     color: #BF4042;
     margin-top: 2%;
     margin-bottom: 2%;
-    text-decoration: underline;
 }
 
 .div-details2 {
@@ -1029,4 +1028,201 @@ footer {
 .a-footer:hover {
     color: #FFFFFF;
     text-decoration: none;
+}
+
+/* loan simulation details */
+.p-info {
+}
+
+.form-loan-details {
+    width: 60vmax;
+    float: left;
+    clear: right;
+    padding: 2vmax;
+    margin-bottom: 2vmax;
+    background-color: #F7F8FC;
+    border: 1px solid #19364D;
+    /*box-shadow: 2px 2px 2px 2px black;*/
+    -webkit-box-shadow: 0px 4px 10px 0px rgba(84, 75, 61, 0.56);
+    -moz-box-shadow:    0px 4px 10px 0px rgba(84, 75, 61, 0.56);
+    box-shadow:         0px 4px 10px 0px rgba(84, 75, 61, 0.56);
+    /*-webkit-box-shadow: 0px 4px 10px 0px #BF4042;*/
+    /*-moz-box-shadow:    0px 4px 10px 0px #BF4042;*/
+    /*box-shadow:         0px 4px 10px 0px #BF4042;*/
+    /*box-shadow: 3px 3px 3px 20px #182019;*/
+}
+
+.form-loan-details-info {
+    width: 20vmax;
+    height: 9vmax;
+    margin-left: auto;
+    margin-right: auto;
+    background-color: #1C3752;
+    -webkit-box-shadow: 0px 4px 10px 0px rgba(84, 75, 61, 0.56);
+    -moz-box-shadow:    0px 4px 10px 0px rgba(84, 75, 61, 0.56);
+    box-shadow:         0px 4px 10px 0px rgba(84, 75, 61, 0.56);
+}
+
+#div-amount {
+    width: 20vmax;
+    height: 9vmax;
+    margin-left: 60vmax;
+}
+
+#div-period {
+    width: 20vmax;
+    height: 9vmax;
+    margin-left: 60vmax;
+    margin-top: 9vmax;
+}
+
+#div-age {
+    width: 20vmax;
+    height: 9vmax;
+    margin-left: 60vmax;
+    margin-top: 18vmax;
+}
+
+#div-charge {
+    width: 20vmax;
+    height: 11vmax;
+    margin-left: 60vmax;
+    margin-top: 27vmax;
+}
+
+#div-insurance {
+    width: 20vmax;
+    height: 10vmax;
+    margin-left: 60vmax;
+    margin-top: 38vmax;
+}
+
+#div-cost-hipo {
+    width: 20vmax;
+    height: 9vmax;
+    margin-left: 60vmax;
+}
+
+#div-amount-hipo {
+    width: 20vmax;
+    height: 9vmax;
+    margin-left: 60vmax;
+    margin-top: 11vmax;
+}
+
+#div-period-hipo {
+    width: 20vmax;
+    height: 9vmax;
+    margin-left: 60vmax;
+    margin-top: 20vmax;
+}
+
+#div-age-hipo {
+    width: 20vmax;
+    height: 5vmax;
+    margin-left: 60vmax;
+    margin-top: 29vmax;
+}
+
+#div-charge-hipo {
+    width: 20vmax;
+    height: 11vmax;
+    margin-left: 60vmax;
+    margin-top: 34vmax;
+}
+
+#div-insurance-hipo {
+    width: 20vmax;
+    height: 10vmax;
+    margin-left: 60vmax;
+    margin-top: 45vmax;
+}
+
+.label-title {
+    color: #1C3752;
+    font-size: 2vmax;
+    /*font-weight: bold;*/
+}
+
+.form-p-info {
+    color: #FFFFFF;
+    width: 100%;
+    margin: auto;
+    padding: 1vmax;
+    font-size: 1vmax;
+    text-align: justify;
+}
+
+.form-p-info-mini {
+    color: #FFFFFF;
+    width: 100%;
+    margin: auto;
+    padding: 1vmax;
+    font-size: 1.3vmax;
+    text-align: justify;
+}
+
+.div-outer-amount {
+    float:left;
+    overflow: hidden;
+    position: absolute;
+}
+
+.btn-next {
+    text-align: center;
+    align-items: center;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+/* list offers */
+
+.div-list-offers {
+    -webkit-box-shadow: 0px 4px 10px 0px rgba(84, 75, 61, 0.56);
+    -moz-box-shadow:    0px 4px 10px 0px rgba(84, 75, 61, 0.56);
+    box-shadow:         0px 4px 10px 0px rgba(84, 75, 61, 0.56);
+}
+
+.td-list-offer {
+    vertical-align: middle;
+}
+
+.td-list-offer-red {
+    vertical-align: middle;
+    font-weight: bold;
+    color: crimson;
+}
+
+/* list of agencies */
+.img-h3 {
+    width: 15vmax;
+    height: 8vmax;
+}
+
+.span-h3 {
+    vertical-align: middle;
+    margin-left: 2vmax;
+}
+
+/* contact form */
+.div-contact-form {
+    padding: 2%;
+    margin-bottom: 2vmax;
+    -webkit-box-shadow: 0px 4px 10px 0px rgba(84, 75, 61, 0.56);
+    -moz-box-shadow:    0px 4px 10px 0px rgba(84, 75, 61, 0.56);
+    box-shadow:         0px 4px 10px 0px rgba(84, 75, 61, 0.56);
+}
+
+.h4-send-msg {
+    color: green;
+    text-align: center;
+    margin-bottom: 1vmax;
+}
+
+/* info alert */
+.info-alert {
+    font-size: 8px;
+    text-align: justify;
+    color: #1C3752;
+    margin-bottom: 1vmax;
 }
