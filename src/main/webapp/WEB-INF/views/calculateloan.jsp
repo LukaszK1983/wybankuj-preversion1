@@ -16,6 +16,9 @@
     <link rel="stylesheet"
           href="https://cdn.jsdelivr.net/npm/bootstrap-select@1.13.9/dist/css/bootstrap-select.min.css">
     <script src="https://cdn.jsdelivr.net/npm/bootstrap-select@1.13.9/dist/js/bootstrap-select.min.js"></script>
+
+    <script src="${pageContext.request.contextPath}/js/apploan.js"></script>
+
 </head>
 <body>
 <div id="fb-root"></div>
@@ -37,19 +40,24 @@
         </c:when>
         <c:otherwise>
             <div class="div-list-offers">
-                <table class="table" style="color: #1C3752; text-align: center">
+                <table class="table table-hover sticky-header" style="color: #1C3752; text-align: center">
                     <thead class="thead-light">
                     <tr>
-                        <th>Bank</th>
-                        <th>Oferta</th>
-                        <th>Kwota</th>
-                        <th>Okres</th>
-                        <th>Rata</th>
-                        <th></th>
-                        <th></th>
+                        <th class="th-sticky" style="vertical-align: middle">Bank</th>
+                        <th class="th-sticky" style="vertical-align: middle">Oferta</th>
+                        <th class="th-sticky" style="vertical-align: middle">Kwota</th>
+                        <th class="th-sticky" style="vertical-align: middle">Okres</th>
+                        <th class="th-sticky" style="vertical-align: middle">Rata</th>
+                        <th class="th-sticky" style="vertical-align: middle; width: 20vmax" id="th-compare">Porównaj (max. 3)</th>
+<%--                        <th class="th-sticky" style="vertical-align: middle"></th>--%>
                     </tr>
                     </thead>
                     <c:forEach var="loan" items="${loanSimulation}">
+                        <input type="hidden" value="${userLoan.amount}" class="input-amount" />
+                        <input type="hidden" value="${userLoan.creditPeriod}" class="input-period" />
+                        <input type="hidden" value="${userLoan.age}" class="input-age" />
+                        <input type="hidden" value="${userLoan.chooseServiceCharge}" class="input-charge" />
+                        <input type="hidden" value="${userLoan.chooseInsurance}" class="input-insurance" />
                         <tr>
                             <td style="vertical-align: middle"><img src="<c:url value="/img/${loan.key.bank.logo}" />" width="70" height="40"
                                      alt="${loan.key.bank.bankName}"/></td>
@@ -57,20 +65,24 @@
                             <td style="vertical-align: middle"><fmt:formatNumber type="currency" >${userLoan.amount}</fmt:formatNumber></td>
                             <td style="vertical-align: middle">${userLoan.creditPeriod} mies.</td>
                             <td style="vertical-align: middle; font-weight: bold; color: crimson"><fmt:formatNumber type="currency" >${loan.value}</fmt:formatNumber></td>
-                            <form action="${pageContext.request.contextPath}/loanDetails" method="post"
-                                  modelAttribute="userLoan">
-                                <input type="hidden" name="loanId" value="${loan.key.id}">
-                                <input type="hidden" name="amount" value="${userLoan.amount}">
-                                <input type="hidden" name="creditPeriod" value="${userLoan.creditPeriod}">
-                                <input type="hidden" name="age" value="${userLoan.age}">
-                                <input type="hidden" name="chooseServiceCharge" value="${userLoan.chooseServiceCharge}">
-                                <input type="hidden" name="chooseInsurance" value="${userLoan.chooseInsurance}">
-                                <td style="vertical-align: middle"><input type="submit" value="Szczegóły"
-                                           class="btn btn-sm btn-outline-primary rounded"></td>
-                            </form>
                             <td style="vertical-align: middle">
-                                <a href="${pageContext.request.contextPath}/listOfAgencies?bankId=${loan.key.bank.id}&amount=${userLoan.amount}&creditPeriod=${userLoan.creditPeriod}"
-                                   class="btn btn-sm btn-outline-primary rounded">Lista oddziałów</a></td>
+                                <input type="checkbox" name="offer" value="${loan.key.id}" class="checkbox1" />
+                            </td>
+<%--                            <form action="${pageContext.request.contextPath}/loanDetails" method="post"--%>
+<%--                                  modelAttribute="userLoan">--%>
+<%--                                <input type="hidden" name="loanId" value="${loan.key.id}">--%>
+<%--                                <input type="hidden" name="amount" value="${userLoan.amount}">--%>
+<%--                                <input type="hidden" name="creditPeriod" value="${userLoan.creditPeriod}">--%>
+<%--                                <input type="hidden" name="age" value="${userLoan.age}">--%>
+<%--                                <input type="hidden" name="chooseServiceCharge" value="${userLoan.chooseServiceCharge}">--%>
+<%--                                <input type="hidden" name="chooseInsurance" value="${userLoan.chooseInsurance}">--%>
+<%--                                <td style="vertical-align: middle"><input type="submit" value="Szczegóły"--%>
+<%--                                           class="btn btn-sm btn-outline-primary rounded"></td>--%>
+<%--                            </form>--%>
+<%--                            <td style="vertical-align: middle">--%>
+<%--                                <a href="${pageContext.request.contextPath}/listOfAgencies?bankId=${loan.key.bank.id}&amount=${userLoan.amount}&creditPeriod=${userLoan.creditPeriod}"--%>
+<%--                                   class="btn btn-sm btn-outline-primary rounded">Lista oddziałów</a>--%>
+<%--                            </td>--%>
                         </tr>
                     </c:forEach>
                 </table>

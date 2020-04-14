@@ -92,6 +92,7 @@ $(document).ready(function () {
             form.submit();
         }
     }
+
     button.on('click', function (e) {
         e.preventDefault();
         const divAmount = $('#div-amount').hide();
@@ -155,4 +156,82 @@ $(document).ready(function () {
         divInsurance.show();
     });
 
+    // compare offers
+    const myArray = [];
+    const thCompare = $('#th-compare');
+    const inputsAmount = $('.input-amount').val();
+    const inputsPeriod = $('.input-period').val();
+    const inputsAge = $('.input-age').val();
+    const inputsCharge = $('.input-charge').val();
+    const inputsInsurance = $('.input-insurance').val();
+    const checkboxes = $('.checkbox1');
+
+    checkboxes.on('click', function () {
+        checkboxes.not(':checked').prop('disabled', $('.checkbox1:checked').length === 3);
+
+        if (($(this).val() !== myArray[0]) && ($(this).val() !== myArray[1]) && ($(this).val() !== myArray[2]) && myArray.length < 3) {
+            myArray.push($(this).val());
+        } else if (($(this).val() !== myArray[0]) && ($(this).val() !== myArray[1]) && ($(this).val() !== myArray[2]) && (myArray[0] === undefined || myArray[1] === undefined || myArray[2] === undefined) && myArray.length <= 3) {
+            if (undefined === myArray[0]) {
+                myArray[0] = $(this).val();
+            } else if (undefined === myArray[1]) {
+                myArray[1] = $(this).val();
+            } else if (undefined === myArray[2]) {
+                myArray[2] = $(this).val();
+            }
+        } else if (myArray.length === 3) {
+            if ($(this).val() === myArray[0]) {
+                delete myArray[0];
+            } else if ($(this).val() === myArray[1]) {
+                delete myArray[1];
+            } else if ($(this).val() === myArray[2]) {
+                delete myArray[2];
+            }
+        } else {
+            if ($(this).val() === myArray[0]) {
+                delete myArray[0];
+            } else if ($(this).val() === myArray[1]) {
+                delete myArray[1];
+            } else if ($(this).val() === myArray[2]) {
+                delete myArray[2];
+            }
+        }
+
+        const lastArray = [];
+        let partToPaste = '';
+
+        for (let i = 0; i < myArray.length; i++) {
+            if (myArray[i] > 0) {
+                lastArray.push(myArray[i]);
+            }
+        }
+
+        if (lastArray.length === 3) {
+            partToPaste = '<input type="hidden" name="loanId" value="' + lastArray[0] + '">' +
+                '  <input type="hidden" name="loanId2" value="' + lastArray[1] + '">' +
+                '  <input type="hidden" name="loanId3" value="' + lastArray[2] + '">';
+        } else if (lastArray.length === 2) {
+            partToPaste = '<input type="hidden" name="loanId" value="' + lastArray[0] + '">' +
+                '  <input type="hidden" name="loanId2" value="' + lastArray[1] + '">' +
+                '  <input type="hidden" name="loanId3" value="0">';
+        } else if (lastArray.length === 1) {
+            partToPaste = '<input type="hidden" name="loanId" value="' + lastArray[0] + '">' +
+                '  <input type="hidden" name="loanId2" value="0">' +
+                '  <input type="hidden" name="loanId3" value="0">';
+        }
+
+        thCompare.html('<form action="/loanDetails" method="post" modelattribute="userLoan">' +
+            '' + partToPaste +
+            '  <input type="hidden" name="amount" value="' + inputsAmount + '">\n' +
+            '  <input type="hidden" name="creditPeriod" value="' + inputsPeriod + '">\n' +
+            '  <input type="hidden" name="age" value="' + inputsAge + '">\n' +
+            '  <input type="hidden" name="chooseServiceCharge" value="' + inputsCharge + '">\n' +
+            '  <input type="hidden" name="chooseInsurance" value="' + inputsInsurance + '">\n' +
+            '  <input type="submit" value="Porównaj (max. 3)" class="btn btn-sm btn-success rounded" />\n' +
+            '</form>');
+
+        if ($('.checkbox1:checked').length === 0) {
+            $('#th-compare').html('Porównaj (max. 3)');
+        }
+    });
 });

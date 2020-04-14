@@ -25,50 +25,152 @@
 </div>
 
 <div class="container">
-    <h3 class="h3-details">Szczegóły oferty ${loan.offer}</h3>
+    <h3 class="h3-details">Porównanie ofert</h3>
 
     <div class="div-list-offers">
-        <table class="table" style="color: #1C3752;">
+        <table class="table" style="color: #1C3752; text-align: center">
+            <thead>
+                <th></th>
+                <th class="th-sticky-compare"><img src="<c:url value="/img/${calculations1.loan.bank.logo}" />" width="70vmax" height="40vmax"
+                         alt="${calculations1.loan.bank.bankName}" /></th>
+                <c:choose>
+                    <c:when test="${testLoan2}">
+                        <th class="th-sticky-compare"><img src="<c:url value="/img/${calculations2.loan.bank.logo}" />" width="70vmax" height="40vmax"
+                                 alt="${calculations2.loan.bank.bankName}" /></th>
+                    </c:when>
+                </c:choose>
+                <c:choose>
+                    <c:when test="${testLoan3}">
+                        <th class="th-sticky-compare"><img src="<c:url value="/img/${calculations3.loan.bank.logo}" />" width="70vmax" height="40vmax"
+                                 alt="${calculations3.loan.bank.bankName}" /></th>
+                    </c:when>
+                </c:choose>
+            </thead>
             <tr>
-                <td style="vertical-align: middle; background-color: #F0F5FA">Bank:</td>
-                <td><img src="<c:url value="/img/${loan.bank.logo}" />" width="70vmax" height="40vmax"
-                         alt="${loan.bank.bankName}"/></td>
+                <td class="td-compare-offers">Oferta:</td>
+                <td class="td-compare-offers-normal">${calculations1.loan.offer}</td>
+                <c:choose>
+                    <c:when test="${testLoan2}">
+                        <td class="td-compare-offers-normal">${calculations2.loan.offer}</td>
+                    </c:when>
+                </c:choose>
+                <c:choose>
+                    <c:when test="${testLoan3}">
+                        <td class="td-compare-offers-normal">${calculations3.loan.offer}</td>
+                    </c:when>
+                </c:choose>
             </tr>
             <tr>
-                <td style="background-color: #F0F5FA">Oferta:</td>
-                <td style="font-weight: bold; color: crimson">${loan.offer}</td>
+                <td class="td-compare-offers">Kwota kredytu:</td>
+                <td class="td-compare-offers-normal-bold"><fmt:formatNumber type="currency" >${userLoan.amount}</fmt:formatNumber></td>
+                <c:choose>
+                    <c:when test="${testLoan2}">
+                        <td class="td-compare-offers-normal-bold"><fmt:formatNumber type="currency" >${userLoan.amount}</fmt:formatNumber></td>
+                    </c:when>
+                </c:choose>
+                <c:choose>
+                    <c:when test="${testLoan3}">
+                        <td class="td-compare-offers-normal-bold"><fmt:formatNumber type="currency" >${userLoan.amount}</fmt:formatNumber></td>
+                    </c:when>
+                </c:choose>
             </tr>
             <tr>
-                <td style="background-color: #F0F5FA">Kwota:</td>
-                <td style="font-weight: bold; color: crimson"><fmt:formatNumber type="currency" >${userLoan.amount}</fmt:formatNumber></td>
+                <td class="td-compare-offers">Okres kredytowania:</td>
+                <td class="td-compare-offers-normal">${userLoan.creditPeriod} mies.</td>
+                <c:choose>
+                    <c:when test="${testLoan2}">
+                        <td class="td-compare-offers-normal">${userLoan.creditPeriod} mies.</td>
+                    </c:when>
+                </c:choose>
+                <c:choose>
+                    <c:when test="${testLoan3}">
+                        <td class="td-compare-offers-normal">${userLoan.creditPeriod} mies.</td>
+                    </c:when>
+                </c:choose>
             </tr>
             <tr>
-                <td style="background-color: #F0F5FA">Okres:</td>
-                <td style="font-weight: bold; color: crimson">${userLoan.creditPeriod} mies.</td>
+                <td class="td-compare-offers">Wysokość raty:</td>
+                <td class="td-compare-offers-red-bold"><fmt:formatNumber type="currency" >${calculations1.payment}</fmt:formatNumber></td>
+                <c:choose>
+                    <c:when test="${testLoan2}">
+                        <td class="td-compare-offers-red-bold"><fmt:formatNumber type="currency" >${calculations2.payment}</fmt:formatNumber></td>
+                    </c:when>
+                </c:choose>
+                <c:choose>
+                    <c:when test="${testLoan3}">
+                        <td class="td-compare-offers-red-bold"><fmt:formatNumber type="currency" >${calculations3.payment}</fmt:formatNumber></td>
+                    </c:when>
+                </c:choose>
             </tr>
             <tr>
-                <td style="background-color: #F0F5FA">Rata:</td>
-                <td style="font-weight: bold; color: crimson"><fmt:formatNumber type="currency" >${payment}</fmt:formatNumber></td>
+                <td class="td-compare-offers">Oprocentowanie nominalne:</td>
+                <td class="td-compare-offers-normal">${calculations1.loan.creditRate}%</td>
+                <c:choose>
+                    <c:when test="${testLoan2}">
+                        <td class="td-compare-offers-normal">${calculations2.loan.creditRate}%</td>
+                    </c:when>
+                </c:choose>
+                <c:choose>
+                    <c:when test="${testLoan3}">
+                        <td class="td-compare-offers-normal">${calculations3.loan.creditRate}%</td>
+                    </c:when>
+                </c:choose>
             </tr>
             <tr>
-                <td style="background-color: #F0F5FA">Oprocentowanie:</td>
-                <td style="font-weight: bold; color: crimson">${loan.creditRate}%</td>
+                <td class="td-compare-offers">Prowizja za uruchomienie:</td>
+                <td class="td-compare-offers-red">${calculations1.loan.serviceCharge}%, czyli <fmt:formatNumber type="currency" >${calculations1.serviceCharge}</fmt:formatNumber></td>
+                <c:choose>
+                    <c:when test="${testLoan2}">
+                        <td class="td-compare-offers-red">${calculations2.loan.serviceCharge}%, czyli <fmt:formatNumber type="currency" >${calculations2.serviceCharge}</fmt:formatNumber></td>
+                    </c:when>
+                </c:choose>
+                <c:choose>
+                    <c:when test="${testLoan3}">
+                        <td class="td-compare-offers-red">${calculations3.loan.serviceCharge}%, czyli <fmt:formatNumber type="currency" >${calculations3.serviceCharge}</fmt:formatNumber></td>
+                    </c:when>
+                </c:choose>
             </tr>
             <tr>
-                <td style="background-color: #F0F5FA">Prowizja:</td>
-                <td style="font-weight: bold; color: crimson">${loan.serviceCharge}%, czyli <fmt:formatNumber type="currency" >${serviceCharge}</fmt:formatNumber></td>
+                <td class="td-compare-offers">Ubezpieczenie:</td>
+                <td class="td-compare-offers-red">${calculations1.loan.insurance}%, czyli <fmt:formatNumber type="currency" >${calculations1.insurance}</fmt:formatNumber></td>
+                <c:choose>
+                    <c:when test="${testLoan2}">
+                        <td class="td-compare-offers-red">${calculations2.loan.insurance}%, czyli <fmt:formatNumber type="currency" >${calculations2.insurance}</fmt:formatNumber></td>
+                    </c:when>
+                </c:choose>
+                <c:choose>
+                    <c:when test="${testLoan3}">
+                        <td class="td-compare-offers-red">${calculations3.loan.insurance}%, czyli <fmt:formatNumber type="currency" >${calculations3.insurance}</fmt:formatNumber></td>
+                    </c:when>
+                </c:choose>
             </tr>
             <tr>
-                <td style="background-color: #F0F5FA">Ubezpieczenie:</td>
-                <td style="font-weight: bold; color: crimson">${loan.insurance}%, czyli <fmt:formatNumber type="currency" >${insurance}</fmt:formatNumber></td>
+                <td class="td-compare-offers">Odsetki:</td>
+                <td class="td-compare-offers-red"><fmt:formatNumber type="currency" >${calculations1.interests}</fmt:formatNumber></td>
+                <c:choose>
+                    <c:when test="${testLoan2}">
+                        <td class="td-compare-offers-red"><fmt:formatNumber type="currency" >${calculations2.interests}</fmt:formatNumber></td>
+                    </c:when>
+                </c:choose>
+                <c:choose>
+                    <c:when test="${testLoan3}">
+                        <td class="td-compare-offers-red"><fmt:formatNumber type="currency" >${calculations3.interests}</fmt:formatNumber></td>
+                    </c:when>
+                </c:choose>
             </tr>
             <tr>
-                <td style="background-color: #F0F5FA">Odsetki:</td>
-                <td style="font-weight: bold; color: crimson"><fmt:formatNumber type="currency" >${interests}</fmt:formatNumber></td>
-            </tr>
-            <tr>
-                <td style="background-color: #F0F5FA">Koszt całkowity:</td>
-                <td style="font-weight: bold; color: crimson"><fmt:formatNumber type="currency" >${totalCost}</fmt:formatNumber></td>
+                <td class="td-compare-offers">Koszt całkowity:</td>
+                <td class="td-compare-offers-red-bold"><fmt:formatNumber type="currency" >${calculations1.totalCost}</fmt:formatNumber></td>
+                <c:choose>
+                    <c:when test="${testLoan2}">
+                        <td class="td-compare-offers-red-bold"><fmt:formatNumber type="currency" >${calculations2.totalCost}</fmt:formatNumber></td>
+                    </c:when>
+                </c:choose>
+                <c:choose>
+                    <c:when test="${testLoan3}">
+                        <td class="td-compare-offers-red-bold"><fmt:formatNumber type="currency" >${calculations3.totalCost}</fmt:formatNumber></td>
+                    </c:when>
+                </c:choose>
             </tr>
             <tr>
                 <td class="btn-next">
@@ -83,9 +185,28 @@
                     </form>
                 </td>
                 <td>
-                    <a href="${pageContext.request.contextPath}/listOfAgencies?bankId=${loan.bank.id}&amount=${userLoan.amount}&creditPeriod=${userLoan.creditPeriod}"
+                    <a href="${pageContext.request.contextPath}/listOfAgencies?bankId=${calculations1.loan.bank.id}&offer=${calculations1.loan.offer}&amount=${userLoan.amount}&creditPeriod=${userLoan.creditPeriod}
+&age=${userLoan.age}&chooseServiceCharge=${userLoan.chooseServiceCharge}&chooseInsurance=${userLoan.chooseInsurance}"
                        class="btn btn-sm btn-outline-success rounded">Wybierz oddział do kontaktu</a>
                 </td>
+                <c:choose>
+                    <c:when test="${testLoan2}">
+                        <td>
+                            <a href="${pageContext.request.contextPath}/listOfAgencies?bankId=${calculations2.loan.bank.id}&offer=${calculations2.loan.offer}&amount=${userLoan.amount}&creditPeriod=${userLoan.creditPeriod}
+&age=${userLoan.age}&chooseServiceCharge=${userLoan.chooseServiceCharge}&chooseInsurance=${userLoan.chooseInsurance}"
+                               class="btn btn-sm btn-outline-success rounded">Wybierz oddział do kontaktu</a>
+                        </td>
+                    </c:when>
+                </c:choose>
+                <c:choose>
+                    <c:when test="${testLoan3}">
+                        <td>
+                            <a href="${pageContext.request.contextPath}/listOfAgencies?bankId=${calculations3.loan.bank.id}&offer=${calculations3.loan.offer}&amount=${userLoan.amount}&creditPeriod=${userLoan.creditPeriod}
+&age=${userLoan.age}&chooseServiceCharge=${userLoan.chooseServiceCharge}&chooseInsurance=${userLoan.chooseInsurance}"
+                               class="btn btn-sm btn-outline-success rounded">Wybierz oddział do kontaktu</a>
+                        </td>
+                    </c:when>
+                </c:choose>
             </tr>
 <%--            <tr>--%>
 <%--                <td></td>--%>

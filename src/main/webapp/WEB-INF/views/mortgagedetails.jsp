@@ -25,63 +25,187 @@
 </div>
 
 <div class="container">
-    <h3 class="h3-details">Szczegóły oferty ${mortgage.offer}</h3>
+    <h3 class="h3-details">Porównanie ofert</h3>
 
     <div class="div-list-offers">
-        <table class="table" style="color: #1C3752;">
+        <table class="table" style="color: #1C3752; text-align: center">
+            <thead>
+            <th></th>
+            <th class="th-sticky-compare"><img src="<c:url value="/img/${calculations1.mortgage.bank.logo}" />" width="70vmax" height="40vmax"
+                                               alt="${calculations1.mortgage.bank.bankName}" /></th>
+            <c:choose>
+                <c:when test="${testMortgage2}">
+                    <th class="th-sticky-compare"><img src="<c:url value="/img/${calculations2.mortgage.bank.logo}" />" width="70vmax" height="40vmax"
+                                                       alt="${calculations2.mortgage.bank.bankName}" /></th>
+                </c:when>
+            </c:choose>
+            <c:choose>
+                <c:when test="${testMortgage3}">
+                    <th class="th-sticky-compare"><img src="<c:url value="/img/${calculations3.mortgage.bank.logo}" />" width="70vmax" height="40vmax"
+                                                       alt="${calculations3.mortgage.bank.bankName}" /></th>
+                </c:when>
+            </c:choose>
+            </thead>
             <tr>
-                <td style="vertical-align: middle; background-color: #F0F5FA">Bank:</td>
-                <td><img src="<c:url value="/img/${mortgage.bank.logo}" />" width="70vmax" height="40vmax"
-                         alt="${mortgage.bank.bankName}"/></td>
+                <td class="td-compare-offers">Oferta:</td>
+                <td class="td-compare-offers-normal">${calculations1.mortgage.offer}</td>
+                <c:choose>
+                    <c:when test="${testMortgage2}">
+                        <td class="td-compare-offers-normal">${calculations2.mortgage.offer}</td>
+                    </c:when>
+                </c:choose>
+                <c:choose>
+                    <c:when test="${testMortgage3}">
+                        <td class="td-compare-offers-normal">${calculations3.mortgage.offer}</td>
+                    </c:when>
+                </c:choose>
             </tr>
             <tr>
-                <td style="background-color: #F0F5FA">Oferta:</td>
-                <td style="font-weight: bold; color: crimson">${mortgage.offer}</td>
+                <td class="td-compare-offers">Koszt inwestycji:</td>
+                <td class="td-compare-offers-normal"><fmt:formatNumber type="currency" >${userMortgage.cost}</fmt:formatNumber></td>
+                <c:choose>
+                    <c:when test="${testMortgage2}">
+                        <td class="td-compare-offers-normal"><fmt:formatNumber type="currency" >${userMortgage.cost}</fmt:formatNumber></td>
+                    </c:when>
+                </c:choose>
+                <c:choose>
+                    <c:when test="${testMortgage3}">
+                        <td class="td-compare-offers-normal"><fmt:formatNumber type="currency" >${userMortgage.cost}</fmt:formatNumber></td>
+                    </c:when>
+                </c:choose>
             </tr>
             <tr>
-                <td style="background-color: #F0F5FA">Koszt inwestycji:</td>
-                <td style="font-weight: bold; color: crimson"><fmt:formatNumber type="currency" >${userMortgage.cost}</fmt:formatNumber></td>
+                <td class="td-compare-offers">Kwota kredytu:</td>
+                <td class="td-compare-offers-normal-bold"><fmt:formatNumber type="currency" >${userMortgage.amount}</fmt:formatNumber></td>
+                <c:choose>
+                    <c:when test="${testMortgage2}">
+                        <td class="td-compare-offers-normal-bold"><fmt:formatNumber type="currency" >${userMortgage.amount}</fmt:formatNumber></td>
+                    </c:when>
+                </c:choose>
+                <c:choose>
+                    <c:when test="${testMortgage3}">
+                        <td class="td-compare-offers-normal-bold"><fmt:formatNumber type="currency" >${userMortgage.amount}</fmt:formatNumber></td>
+                    </c:when>
+                </c:choose>
             </tr>
             <tr>
-                <td style="background-color: #F0F5FA">Kwota kredytu:</td>
-                <td style="font-weight: bold; color: crimson"><fmt:formatNumber type="currency" >${userMortgage.amount}</fmt:formatNumber></td>
+                <td class="td-compare-offers">Okres kredytowania:</td>
+                <td class="td-compare-offers-normal">${userMortgage.creditPeriod} mies.</td>
+                <c:choose>
+                    <c:when test="${testMortgage2}">
+                        <td class="td-compare-offers-normal">${userMortgage.creditPeriod} mies.</td>
+                    </c:when>
+                </c:choose>
+                <c:choose>
+                    <c:when test="${testMortgage3}">
+                        <td class="td-compare-offers-normal">${userMortgage.creditPeriod} mies.</td>
+                    </c:when>
+                </c:choose>
             </tr>
             <tr>
-                <td style="background-color: #F0F5FA">Okres kredytowania:</td>
-                <td style="font-weight: bold; color: crimson">${userMortgage.creditPeriod} mies.</td>
+                <td class="td-compare-offers">Wkład własny:</td>
+                <td class="td-compare-offers-normal">${userMortgage.contributionPercent}%, czyli <fmt:formatNumber type="currency" >${userMortgage.cost - userMortgage.amount}</fmt:formatNumber></td>
+                <c:choose>
+                    <c:when test="${testMortgage2}">
+                        <td class="td-compare-offers-normal">${userMortgage.contributionPercent}%, czyli <fmt:formatNumber type="currency" >${userMortgage.cost - userMortgage.amount}</fmt:formatNumber></td>
+                    </c:when>
+                </c:choose>
+                <c:choose>
+                    <c:when test="${testMortgage3}">
+                        <td class="td-compare-offers-normal">${userMortgage.contributionPercent}%, czyli <fmt:formatNumber type="currency" >${userMortgage.cost - userMortgage.amount}</fmt:formatNumber></td>
+                    </c:when>
+                </c:choose>
             </tr>
             <tr>
-                <td style="background-color: #F0F5FA">Wkład własny:</td>
-                <td style="font-weight: bold; color: crimson">${userMortgage.contributionPercent}%, czyli <fmt:formatNumber type="currency" >${userMortgage.cost - userMortgage.amount}</fmt:formatNumber></td>
+                <td class="td-compare-offers">Wysokość raty:</td>
+                <td class="td-compare-offers-red-bold"><fmt:formatNumber type="currency" >${calculations1.payment}</fmt:formatNumber></td>
+                <c:choose>
+                    <c:when test="${testMortgage2}">
+                        <td class="td-compare-offers-red-bold"><fmt:formatNumber type="currency" >${calculations2.payment}</fmt:formatNumber></td>
+                    </c:when>
+                </c:choose>
+                <c:choose>
+                    <c:when test="${testMortgage3}">
+                        <td class="td-compare-offers-red-bold"><fmt:formatNumber type="currency" >${calculations3.payment}</fmt:formatNumber></td>
+                    </c:when>
+                </c:choose>
             </tr>
             <tr>
-                <td style="background-color: #F0F5FA">Wysokość raty:</td>
-                <td style="font-weight: bold; color: crimson"><fmt:formatNumber type="currency" >${payment}</fmt:formatNumber></td>
+                <td class="td-compare-offers">Oprocentowanie nominalne:</td>
+                <td class="td-compare-offers-normal">${calculations1.mortgage.creditRate}%</td>
+                <c:choose>
+                    <c:when test="${testMortgage2}">
+                        <td class="td-compare-offers-normal">${calculations2.mortgage.creditRate}%</td>
+                    </c:when>
+                </c:choose>
+                <c:choose>
+                    <c:when test="${testMortgage3}">
+                        <td class="td-compare-offers-normal">${calculations3.mortgage.creditRate}%</td>
+                    </c:when>
+                </c:choose>
             </tr>
             <tr>
-                <td style="background-color: #F0F5FA">Oprocentowanie nominalne:</td>
-                <td style="font-weight: bold; color: crimson">${mortgage.creditRate}%</td>
+                <td class="td-compare-offers">Prowizja za uruchomienie:</td>
+                <td class="td-compare-offers-red">${calculations1.mortgage.serviceCharge}%, czyli <fmt:formatNumber type="currency" >${calculations1.serviceCharge}</fmt:formatNumber></td>
+                <c:choose>
+                    <c:when test="${testMortgage2}">
+                        <td class="td-compare-offers-red">${calculations2.mortgage.serviceCharge}%, czyli <fmt:formatNumber type="currency" >${calculations2.serviceCharge}</fmt:formatNumber></td>
+                    </c:when>
+                </c:choose>
+                <c:choose>
+                    <c:when test="${testMortgage3}">
+                        <td class="td-compare-offers-red">${calculations3.mortgage.serviceCharge}%, czyli <fmt:formatNumber type="currency" >${calculations3.serviceCharge}</fmt:formatNumber></td>
+                    </c:when>
+                </c:choose>
             </tr>
             <tr>
-                <td style="background-color: #F0F5FA">Prowizja za uruchomienie:</td>
-                <td style="font-weight: bold; color: crimson">${mortgage.serviceCharge}%, czyli <fmt:formatNumber type="currency" >${serviceCharge}</fmt:formatNumber></td>
+                <td class="td-compare-offers">Ubezpieczenie:</td>
+                <td class="td-compare-offers-red">${calculations1.mortgage.insurance}%, czyli <fmt:formatNumber type="currency" >${calculations1.insurance}</fmt:formatNumber></td>
+                <c:choose>
+                    <c:when test="${testMortgage2}">
+                        <td class="td-compare-offers-red">${calculations2.mortgage.insurance}%, czyli <fmt:formatNumber type="currency" >${calculations2.insurance}</fmt:formatNumber></td>
+                    </c:when>
+                </c:choose>
+                <c:choose>
+                    <c:when test="${testMortgage3}">
+                        <td class="td-compare-offers-red">${calculations3.mortgage.insurance}%, czyli <fmt:formatNumber type="currency" >${calculations3.insurance}</fmt:formatNumber></td>
+                    </c:when>
+                </c:choose>
             </tr>
             <tr>
-                <td style="background-color: #F0F5FA">Ubezpieczenie:</td>
-                <td style="font-weight: bold; color: crimson">${mortgage.insurance}%, czyli <fmt:formatNumber type="currency" >${insurance}</fmt:formatNumber></td>
+                <td class="td-compare-offers">Odsetki:</td>
+                <td class="td-compare-offers-red"><fmt:formatNumber type="currency" >${calculations1.interests}</fmt:formatNumber></td>
+                <c:choose>
+                    <c:when test="${testMortgage2}">
+                        <td class="td-compare-offers-red"><fmt:formatNumber type="currency" >${calculations2.interests}</fmt:formatNumber></td>
+                    </c:when>
+                </c:choose>
+                <c:choose>
+                    <c:when test="${testMortgage3}">
+                        <td class="td-compare-offers-red"><fmt:formatNumber type="currency" >${calculations3.interests}</fmt:formatNumber></td>
+                    </c:when>
+                </c:choose>
             </tr>
             <tr>
-                <td style="background-color: #F0F5FA">Odsetki:</td>
-                <td style="font-weight: bold; color: crimson"><fmt:formatNumber type="currency" >${interests}</fmt:formatNumber></td>
+                <td class="td-compare-offers">Koszt całkowity:</td>
+                <td class="td-compare-offers-red-bold"><fmt:formatNumber type="currency" >${calculations1.totalCost}</fmt:formatNumber></td>
+                <c:choose>
+                    <c:when test="${testMortgage2}">
+                        <td class="td-compare-offers-red-bold"><fmt:formatNumber type="currency" >${calculations2.totalCost}</fmt:formatNumber></td>
+                    </c:when>
+                </c:choose>
+                <c:choose>
+                    <c:when test="${testMortgage3}">
+                        <td class="td-compare-offers-red-bold"><fmt:formatNumber type="currency" >${calculations3.totalCost}</fmt:formatNumber></td>
+                    </c:when>
+                </c:choose>
             </tr>
-            <tr>
-                <td style="background-color: #F0F5FA">Koszt całkowity:</td>
-                <td style="font-weight: bold; color: crimson"><fmt:formatNumber type="currency" >${totalCost}</fmt:formatNumber></td>
-            </tr>
+
             <tr>
                 <td class="btn-next">
                     <form action="${pageContext.request.contextPath}/mortgageParameters" method="post"
                           modelattribute="userMortgage">
+                        <input type="hidden" name="cost" value="${userMortgage.cost}"/>
                         <input type="hidden" name="amount" value="${userMortgage.amount}"/>
                         <input type="hidden" name="creditPeriod" value="${userMortgage.creditPeriod}"/>
                         <input type="hidden" name="contributionPercent" value="${userMortgage.contributionPercent}"/>
@@ -92,8 +216,28 @@
                     </form>
                 </td>
                 <td>
-                    <a href="${pageContext.request.contextPath}/listOfAgencies?bankId=${mortgage.bank.id}&amount=${userMortgage.amount}&creditPeriod=${userMortgage.creditPeriod}"
-                       class="btn btn-sm btn-outline-success rounded">Wybierz oddział do kontaktu</a></td>
+                    <a href="${pageContext.request.contextPath}/listOfAgenciesMortgage?bankId=${calculations1.mortgage.bank.id}&offer=${calculations1.mortgage.offer}&cost=${userMortgage.cost}&amount=${userMortgage.amount}&creditPeriod=${userMortgage.creditPeriod}
+&age=${userMortgage.age}&contributionPercent=${userMortgage.contributionPercent}&chooseServiceCharge=${userMortgage.chooseServiceCharge}&chooseInsurance=${userMortgage.chooseInsurance}"
+                       class="btn btn-sm btn-outline-success rounded">Wybierz oddział do kontaktu</a>
+                </td>
+                <c:choose>
+                    <c:when test="${testMortgage2}">
+                        <td>
+                            <a href="${pageContext.request.contextPath}/listOfAgenciesMortgage?bankId=${calculations2.mortgage.bank.id}&offer=${calculations2.mortgage.offer}&cost=${userMortgage.cost}&amount=${userMortgage.amount}&creditPeriod=${userMortgage.creditPeriod}
+&age=${userMortgage.age}&contributionPercent=${userMortgage.contributionPercent}&chooseServiceCharge=${userMortgage.chooseServiceCharge}&chooseInsurance=${userMortgage.chooseInsurance}"
+                               class="btn btn-sm btn-outline-success rounded">Wybierz oddział do kontaktu</a>
+                        </td>
+                    </c:when>
+                </c:choose>
+                <c:choose>
+                    <c:when test="${testMortgage3}">
+                        <td>
+                            <a href="${pageContext.request.contextPath}/listOfAgenciesMortgage?bankId=${calculations3.mortgage.bank.id}&offer=${calculations3.mortgage.offer}&cost=${userMortgage.cost}&amount=${userMortgage.amount}&creditPeriod=${userMortgage.creditPeriod}
+&age=${userMortgage.age}&contributionPercent=${userMortgage.contributionPercent}&chooseServiceCharge=${userMortgage.chooseServiceCharge}&chooseInsurance=${userMortgage.chooseInsurance}"
+                               class="btn btn-sm btn-outline-success rounded">Wybierz oddział do kontaktu</a>
+                        </td>
+                    </c:when>
+                </c:choose>
             </tr>
         </table>
     </div>

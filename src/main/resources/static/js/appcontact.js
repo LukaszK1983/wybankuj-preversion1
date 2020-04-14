@@ -10,7 +10,7 @@ $(document).ready(function () {
 
         const userElement = $('#formuser');
         const user = userElement.val();
-        const regexUser = new RegExp('^[a-zA-ZąćęłŁńóśŚźżŻ\\s]+$');
+        const regexUser = new RegExp('^[a-zA-ZąćęłŁńóśŚźżŻ\\-\\s]+$');
         const validuser = $('#validuser').hide();
 
         if (!regexUser.test(user)) {
@@ -26,7 +26,7 @@ $(document).ready(function () {
 
         const emailElement = $('#formemail');
         const email = emailElement.val();
-        const regexEmail = new RegExp('^[a-zA-Z.-_\\d]+@[a-z]+(\\.[a-z]+){1,}$');
+        const regexEmail = new RegExp('^[a-zA-Z.-_\\d]+@[a-z-\\d]+(\\.[a-z]+){1,}$');
         const validemail = $('#validemail').hide();
 
         if (!regexEmail.test(email)) {

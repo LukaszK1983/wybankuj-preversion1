@@ -5,10 +5,8 @@ import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.ModelAttribute;
-import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.RequestParam;
+import org.springframework.web.bind.annotation.*;
+import pl.wybankuj.entity.Calculations;
 import pl.wybankuj.entity.Loan;
 import pl.wybankuj.entity.UserLoan;
 import pl.wybankuj.repository.LoanRepository;
@@ -54,56 +52,44 @@ public class HomeLoanController {
     }
 
     @PostMapping("/loanDetails")
-    public String getLoanDetails(@RequestParam Long loanId, @ModelAttribute UserLoan userLoan, Model model) {
-        Loan loan = loanRepository.findById(loanId).orElse(new Loan());
-        model.addAttribute("loan", loan);
+    public String getLoanDetails(@RequestParam Long loanId, @RequestParam Long loanId2,
+                                 @RequestParam Long loanId3, @ModelAttribute UserLoan userLoan,
+                                 Model model) {
 
-        BigDecimal payment = loanService.calculateChoosenLoanPayment(loan, userLoan.getAmount(), userLoan.getCreditPeriod());
-        model.addAttribute("payment", payment);
+        if (loanId > 0) {
+            Calculations calculations1 = calculateLoanParameteres(loanId, userLoan);
+            model.addAttribute("calculations1", calculations1);
+        }
 
-        BigDecimal serviceCharge = loanService.calculateServiceCharge(loan, userLoan.getAmount());
-        model.addAttribute("serviceCharge", serviceCharge);
+        if (loanId2 > 0) {
+            boolean testLoan2 = true;
+            model.addAttribute("testLoan2", testLoan2);
 
-        BigDecimal insurance = loanService.calculateInsurance(loan, userLoan.getAmount());
-        model.addAttribute("insurance", insurance);
+            Calculations calculations2 = calculateLoanParameteres(loanId2, userLoan);
+            model.addAttribute("calculations2", calculations2);
+        }
 
-        BigDecimal interests = loanService.calculateInterestsCost(userLoan.getAmount(), userLoan.getCreditPeriod(), payment, serviceCharge, insurance);
-        model.addAttribute("interests", interests);
+        if (loanId3 > 0) {
+            boolean testLoan3 = true;
+            model.addAttribute("testLoan3", testLoan3);
 
-        BigDecimal totalCost = loanService.calculateTotalCost(userLoan.getAmount(), userLoan.getCreditPeriod(), payment);
-        model.addAttribute("totalCost", totalCost);
-
+            Calculations calculations3 = calculateLoanParameteres(loanId3, userLoan);
+            model.addAttribute("calculations3", calculations3);
+        }
         model.addAttribute("userLoan", userLoan);
 
         return "loandetails";
     }
 
     @PostMapping("/generateOffer")
-    public String generateOfferToPDF(@RequestParam Long loanId, @ModelAttribute UserLoan userLoan,
-                                     Model model) throws DocumentException, IOException, URISyntaxException {
+    public String generateOfferToPDF(@RequestParam Long loanId, @ModelAttribute UserLoan userLoan, Model model) throws DocumentException, IOException, URISyntaxException {
 
-        Loan loan = loanRepository.findById(loanId).orElse(new Loan());
-        model.addAttribute("loan", loan);
-
-        BigDecimal payment = loanService.calculateChoosenLoanPayment(loan, userLoan.getAmount(), userLoan.getCreditPeriod());
-        model.addAttribute("payment", payment);
-
-        BigDecimal serviceCharge = loanService.calculateServiceCharge(loan, userLoan.getAmount());
-        model.addAttribute("serviceCharge", serviceCharge);
-
-        BigDecimal insurance = loanService.calculateInsurance(loan, userLoan.getAmount());
-        model.addAttribute("insurance", insurance);
-
-        BigDecimal interests = loanService.calculateInterestsCost(userLoan.getAmount(), userLoan.getCreditPeriod(), payment, serviceCharge, insurance);
-        model.addAttribute("interests", interests);
-
-        BigDecimal totalCost = loanService.calculateTotalCost(userLoan.getAmount(), userLoan.getCreditPeriod(), payment);
-        model.addAttribute("totalCost", totalCost);
+        calculateLoanParameteres(loanId, userLoan);
 
         model.addAttribute("userLoan", userLoan);
 
-        loanService.generatePDF(loan, userLoan, payment, serviceCharge, insurance,
-                interests, totalCost);
+//        loanService.generatePDF(loan, userLoan, payment, serviceCharge, insurance,
+//                interests, totalCost);
 
         return "loandetails";
     }
@@ -111,5 +97,21 @@ public class HomeLoanController {
     @ModelAttribute("answears")
     public List<String> answears() {
         return List.of("TAK", "NIE");
+    }
+
+    public Calculations calculateLoanParameteres(Long loanId, UserLoan userLoan) {
+        Loan loan = loanRepository.findById(loanId).orElse(new Loan());
+
+        BigDecimal payment = loanService.calculateChoosenLoanPayment(loan, userLoan.getAmount(), userLoan.getCreditPeriod());
+
+        BigDecimal serviceCharge = loanService.calculateServiceCharge(loan, userLoan.getAmount());
+
+        BigDecimal insurance = loanService.calculateInsurance(loan, userLoan.getAmount());
+
+        BigDecimal interests = loanService.calculateInterestsCost(userLoan.getAmount(), userLoan.getCreditPeriod(), payment, serviceCharge, insurance);
+
+        BigDecimal totalCost = loanService.calculateTotalCost(userLoan.getAmount(), userLoan.getCreditPeriod(), payment);
+
+        return new Calculations(loan, payment, serviceCharge, insurance, interests, totalCost);
     }
 }

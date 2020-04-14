@@ -7,10 +7,13 @@ import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 import pl.wybankuj.entity.Agency;
 import pl.wybankuj.entity.Bank;
+import pl.wybankuj.entity.UserLoan;
+import pl.wybankuj.entity.UserMortgage;
 import pl.wybankuj.repository.AgencyRepository;
 import pl.wybankuj.repository.BankRepository;
 import pl.wybankuj.service.EmailService;
 
+import java.math.BigDecimal;
 import java.util.List;
 
 @Controller
@@ -28,15 +31,20 @@ public class HomeAgencyController {
 
     @GetMapping("/listOfAgencies")
     public String getAgencies(@RequestParam Long bankId, @RequestParam int amount,
-                              @RequestParam int creditPeriod, Model model) {
+                              @RequestParam String offer, @RequestParam int creditPeriod,
+                              @RequestParam int age, @RequestParam String chooseServiceCharge,
+                              @RequestParam String chooseInsurance, Model model) {
+
         List<Agency> agencies = agencyRepository.findAllByBankId(bankId);
         model.addAttribute("agencies", agencies);
 
         Bank bank = bankRepository.findFirstById(bankId).orElseThrow();
         model.addAttribute("bank", bank);
 
-        model.addAttribute("amount", amount);
-        model.addAttribute("creditPeriod", creditPeriod);
+        UserLoan userLoan = new UserLoan(amount, creditPeriod, age, chooseServiceCharge, chooseInsurance);
+        model.addAttribute("userLoan", userLoan);
+        
+        model.addAttribute("offer", offer);
 
         return "listofagencies";
     }
@@ -44,32 +52,45 @@ public class HomeAgencyController {
     @PostMapping("/listOfAgencies")
     public String getAgenciesByCity(@RequestParam Long bankId, @RequestParam String city,
                                     @RequestParam int amount, @RequestParam int creditPeriod,
-                                    Model model) {
+                                    @RequestParam String offer, @RequestParam int age,
+                                    @RequestParam String chooseServiceCharge,
+                                    @RequestParam String chooseInsurance, Model model) {
+
         List<Agency> agencies = agencyRepository.findAllByBankIdAndCity(bankId, city);
         model.addAttribute("agencies", agencies);
 
         Bank bank = bankRepository.findFirstById(bankId).orElseThrow();
         model.addAttribute("bank", bank);
 
-        model.addAttribute("amount", amount);
-        model.addAttribute("creditPeriod", creditPeriod);
+        UserLoan userLoan = new UserLoan(amount, creditPeriod, age, chooseServiceCharge, chooseInsurance);
+        model.addAttribute("userLoan", userLoan);
+
+        model.addAttribute("offer", offer);
 
         return "listofagencies";
     }
 
     @GetMapping("/agencyContactForm")
     public String agencyContactForm(@RequestParam Long agencyId, @RequestParam int amount,
-                                    @RequestParam int creditPeriod, Model model) {
+                                    @RequestParam int creditPeriod, @RequestParam String offer,
+                                    @RequestParam int age, @RequestParam String chooseServiceCharge,
+                                    @RequestParam String chooseInsurance, Model model) {
+
         model.addAttribute("agency", agencyRepository.findById(agencyId));
-        model.addAttribute("amount", amount);
-        model.addAttribute("creditPeriod", creditPeriod);
+        model.addAttribute("offer", offer);
+
+        UserLoan userLoan = new UserLoan(amount, creditPeriod, age, chooseServiceCharge, chooseInsurance);
+        model.addAttribute("userLoan", userLoan);
+
         return "contactform";
     }
 
     @PostMapping("/agencyContactForm")
     public String sendAgencyContactForm(@RequestParam Long agencyId, @RequestParam String name,
                                         @RequestParam String message, @RequestParam int amount,
-                                        @RequestParam int creditPeriod, Model model) {
+                                        @RequestParam int creditPeriod, @RequestParam String offer,
+                                        @RequestParam int age, @RequestParam String chooseServiceCharge,
+                                        @RequestParam String chooseInsurance, Model model) {
 
         String agencyMail = agencyRepository.findById(agencyId).get().getEmail();
         String title = "Wiadomość z Wybankuj.pl - " + name;
@@ -77,10 +98,95 @@ public class HomeAgencyController {
         String answear = "yes";
 
         model.addAttribute("agency", agencyRepository.findById(agencyId));
-        model.addAttribute("amount", amount);
-        model.addAttribute("creditPeriod", creditPeriod);
+
+        UserLoan userLoan = new UserLoan(amount, creditPeriod, age, chooseServiceCharge, chooseInsurance);
+        model.addAttribute("userLoan", userLoan);
+
+        model.addAttribute("offer", offer);
         model.addAttribute("answear", answear);
 
         return "contactform";
+    }
+
+    @GetMapping("/listOfAgenciesMortgage")
+    public String getAgenciesMortgage(@RequestParam Long bankId, @RequestParam int amount,
+                                      @RequestParam String offer, @RequestParam int creditPeriod,
+                                      @RequestParam BigDecimal contributionPercent, @RequestParam int age,
+                                      @RequestParam String chooseServiceCharge, @RequestParam int cost,
+                                      @RequestParam String chooseInsurance, Model model) {
+
+        List<Agency> agencies = agencyRepository.findAllByBankId(bankId);
+        model.addAttribute("agencies", agencies);
+
+        Bank bank = bankRepository.findFirstById(bankId).orElseThrow();
+        model.addAttribute("bank", bank);
+
+        UserMortgage userMortgage = new UserMortgage(cost, amount, creditPeriod, age, contributionPercent, chooseServiceCharge, chooseInsurance);
+        model.addAttribute("userMortgage", userMortgage);
+
+        model.addAttribute("offer", offer);
+
+        return "listofagenciesmortgage";
+    }
+
+    @PostMapping("/listOfAgenciesMortgage")
+    public String getAgenciesMortgageByCity(@RequestParam Long bankId, @RequestParam String city,
+                                    @RequestParam int amount, @RequestParam int creditPeriod,
+                                    @RequestParam String offer, @RequestParam BigDecimal contributionPercent,
+                                            @RequestParam int age, @RequestParam String chooseServiceCharge,
+                                    @RequestParam String chooseInsurance, @RequestParam int cost, Model model) {
+
+        List<Agency> agencies = agencyRepository.findAllByBankIdAndCity(bankId, city);
+        model.addAttribute("agencies", agencies);
+
+        Bank bank = bankRepository.findFirstById(bankId).orElseThrow();
+        model.addAttribute("bank", bank);
+
+        UserMortgage userMortgage = new UserMortgage(cost, amount, creditPeriod, age, contributionPercent, chooseServiceCharge, chooseInsurance);
+        model.addAttribute("userMortgage", userMortgage);
+
+        model.addAttribute("offer", offer);
+
+        return "listofagenciesmortgage";
+    }
+
+    @GetMapping("/agencyContactFormMortgage")
+    public String agencyContactFormMortgage(@RequestParam Long agencyId, @RequestParam int amount,
+                                    @RequestParam int creditPeriod, @RequestParam String offer,
+                                    @RequestParam BigDecimal contributionPercent, @RequestParam int age,
+                                            @RequestParam String chooseServiceCharge, @RequestParam int cost,
+                                    @RequestParam String chooseInsurance, Model model) {
+
+        model.addAttribute("agency", agencyRepository.findById(agencyId));
+        model.addAttribute("offer", offer);
+
+        UserMortgage userMortgage = new UserMortgage(cost, amount, creditPeriod, age, contributionPercent, chooseServiceCharge, chooseInsurance);
+        model.addAttribute("userMortgage", userMortgage);
+
+        return "contactformmortgage";
+    }
+
+    @PostMapping("/agencyContactFormMortgage")
+    public String sendAgencyContactFormMortgage(@RequestParam Long agencyId, @RequestParam String name,
+                                        @RequestParam String message, @RequestParam int amount,
+                                        @RequestParam int creditPeriod, @RequestParam String offer,
+                                        @RequestParam int age, @RequestParam String chooseServiceCharge,
+                                        @RequestParam String chooseInsurance, @RequestParam BigDecimal contributionPercent,
+                                                @RequestParam int cost, Model model) {
+
+        String agencyMail = agencyRepository.findById(agencyId).get().getEmail();
+        String title = "Wiadomość z Wybankuj.pl - " + name;
+        emailService.send(agencyMail, title, message);
+        String answear = "yes";
+
+        model.addAttribute("agency", agencyRepository.findById(agencyId));
+
+        UserMortgage userMortgage = new UserMortgage(cost, amount, creditPeriod, age, contributionPercent, chooseServiceCharge, chooseInsurance);
+        model.addAttribute("userMortgage", userMortgage);
+
+        model.addAttribute("offer", offer);
+        model.addAttribute("answear", answear);
+
+        return "contactformmortgage";
     }
 }

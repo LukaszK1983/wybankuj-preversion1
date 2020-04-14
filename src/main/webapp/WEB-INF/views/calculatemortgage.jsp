@@ -15,6 +15,9 @@
     <link rel="stylesheet"
           href="https://cdn.jsdelivr.net/npm/bootstrap-select@1.13.9/dist/css/bootstrap-select.min.css">
     <script src="https://cdn.jsdelivr.net/npm/bootstrap-select@1.13.9/dist/js/bootstrap-select.min.js"></script>
+
+    <script src="${pageContext.request.contextPath}/js/appmortgage.js"></script>
+
 </head>
 <body>
 <div id="fb-root"></div>
@@ -36,19 +39,25 @@
         </c:when>
         <c:otherwise>
             <div class="div-list-offers">
-                <table class="table" style="color: #1C3752; text-align: center">
+                <table class="table table-hover sticky-header" style="color: #1C3752; text-align: center">
                     <thead class="thead-light">
                     <tr>
-                        <th>Bank</th>
-                        <th>Oferta</th>
-                        <th>Kwota</th>
-                        <th>Okres</th>
-                        <th>Rata</th>
-                        <th></th>
-                        <th></th>
+                        <th class="th-sticky" style="vertical-align: middle">Bank</th>
+                        <th class="th-sticky" style="vertical-align: middle">Oferta</th>
+                        <th class="th-sticky" style="vertical-align: middle">Kwota</th>
+                        <th class="th-sticky" style="vertical-align: middle">Okres</th>
+                        <th class="th-sticky" style="vertical-align: middle">Rata</th>
+                        <th class="th-sticky" style="vertical-align: middle; width: 20vmax" id="th-compare">Porównaj (max. 3)</th>
                     </tr>
                     </thead>
                     <c:forEach var="mortgage" items="${mortgageSimulation}">
+                        <input type="hidden" value="${userMortgage.cost}" class="input-cost" />
+                        <input type="hidden" value="${userMortgage.amount}" class="input-amount" />
+                        <input type="hidden" value="${userMortgage.creditPeriod}" class="input-period" />
+                        <input type="hidden" value="${userMortgage.contributionPercent}" class="input-percent" />
+                        <input type="hidden" value="${userMortgage.age}" class="input-age" />
+                        <input type="hidden" value="${userMortgage.chooseServiceCharge}" class="input-charge" />
+                        <input type="hidden" value="${userMortgage.chooseInsurance}" class="input-insurance" />
                         <tr>
                             <td style="vertical-align: middle"><img
                                     src="<c:url value="/img/${mortgage.key.bank.logo}" />"
@@ -60,24 +69,27 @@
                             <td style="vertical-align: middle">${userMortgage.creditPeriod} mies.</td>
                             <td style="vertical-align: middle; font-weight: bold; color: crimson"><fmt:formatNumber
                                     type="currency">${mortgage.value}</fmt:formatNumber></td>
-                            <form action="${pageContext.request.contextPath}/mortgageDetails" method="post"
-                                  modelAttribute="userMortgage">
-                                <input type="hidden" name="mortgageId" value="${mortgage.key.id}">
-                                <input type="hidden" name="cost" value="${userMortgage.cost}">
-                                <input type="hidden" name="amount" value="${userMortgage.amount}">
-                                <input type="hidden" name="creditPeriod" value="${userMortgage.creditPeriod}">
-                                <input type="hidden" name="contributionPercent"
-                                       value="${userMortgage.contributionPercent}">
-                                <input type="hidden" name="age" value="${userMortgage.age}">
-                                <input type="hidden" name="chooseServiceCharge"
-                                       value="${userMortgage.chooseServiceCharge}">
-                                <input type="hidden" name="chooseInsurance" value="${userMortgage.chooseInsurance}">
-                                <td><input type="submit" value="Szczegóły"
-                                           class="btn btn-sm btn-outline-primary rounded"></td>
-                            </form>
-                            <td>
-                                <a href="${pageContext.request.contextPath}/listOfAgencies?bankId=${mortgage.key.bank.id}&amount=${userMortgage.amount}&creditPeriod=${userMortgage.creditPeriod}"
-                                   class="btn btn-sm btn-outline-primary rounded">Lista oddziałów</a></td>
+                            <td style="vertical-align: middle">
+                                <input type="checkbox" name="offer" value="${mortgage.key.id}" class="checkbox1" />
+                            </td>
+<%--                            <form action="${pageContext.request.contextPath}/mortgageDetails" method="post"--%>
+<%--                                  modelAttribute="userMortgage">--%>
+<%--                                <input type="hidden" name="mortgageId" value="${mortgage.key.id}">--%>
+<%--                                <input type="hidden" name="cost" value="${userMortgage.cost}">--%>
+<%--                                <input type="hidden" name="amount" value="${userMortgage.amount}">--%>
+<%--                                <input type="hidden" name="creditPeriod" value="${userMortgage.creditPeriod}">--%>
+<%--                                <input type="hidden" name="contributionPercent"--%>
+<%--                                       value="${userMortgage.contributionPercent}">--%>
+<%--                                <input type="hidden" name="age" value="${userMortgage.age}">--%>
+<%--                                <input type="hidden" name="chooseServiceCharge"--%>
+<%--                                       value="${userMortgage.chooseServiceCharge}">--%>
+<%--                                <input type="hidden" name="chooseInsurance" value="${userMortgage.chooseInsurance}">--%>
+<%--                                <td><input type="submit" value="Szczegóły"--%>
+<%--                                           class="btn btn-sm btn-outline-primary rounded"></td>--%>
+<%--                            </form>--%>
+<%--                            <td>--%>
+<%--                                <a href="${pageContext.request.contextPath}/listOfAgencies?bankId=${mortgage.key.bank.id}&amount=${userMortgage.amount}&creditPeriod=${userMortgage.creditPeriod}"--%>
+<%--                                   class="btn btn-sm btn-outline-primary rounded">Lista oddziałów</a></td>--%>
                         </tr>
                     </c:forEach>
                 </table>

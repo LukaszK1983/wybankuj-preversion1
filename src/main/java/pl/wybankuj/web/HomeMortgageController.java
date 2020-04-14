@@ -6,8 +6,7 @@ import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestParam;
-import pl.wybankuj.entity.Mortgage;
-import pl.wybankuj.entity.UserMortgage;
+import pl.wybankuj.entity.*;
 import pl.wybankuj.repository.MortgageRepository;
 import pl.wybankuj.service.MortgageService;
 
@@ -47,25 +46,30 @@ public class HomeMortgageController {
     }
 
     @PostMapping("/mortgageDetails")
-    public String getMortgageDetails(@RequestParam Long mortgageId, @ModelAttribute UserMortgage userMortgage, Model model) {
-        Mortgage mortgage = mortgageRepository.findById(mortgageId).orElse(new Mortgage());
-        model.addAttribute("mortgage", mortgage);
+    public String getMortgageDetails(@RequestParam Long mortgageId, @RequestParam Long mortgageId2,
+                                     @RequestParam Long mortgageId3, @ModelAttribute UserMortgage userMortgage,
+                                     Model model) {
 
-        BigDecimal payment = mortgageService.calculateChoosenMortgagePayment(mortgage, userMortgage.getAmount(), userMortgage.getCreditPeriod());
-        model.addAttribute("payment", payment);
+        if (mortgageId > 0) {
+            CalculationsMortgage calculations1 = calculateMortgageParameteres(mortgageId, userMortgage);
+            model.addAttribute("calculations1", calculations1);
+        }
 
-        BigDecimal serviceCharge = mortgageService.calculateServiceCharge(mortgage, userMortgage.getAmount());
-        model.addAttribute("serviceCharge", serviceCharge);
+        if (mortgageId2 > 0) {
+            boolean testMortgage2 = true;
+            model.addAttribute("testMortgage2", testMortgage2);
 
-        BigDecimal insurance = mortgageService.calculateInsurance(mortgage, userMortgage.getAmount());
-        model.addAttribute("insurance", insurance);
+            CalculationsMortgage calculations2 = calculateMortgageParameteres(mortgageId2, userMortgage);
+            model.addAttribute("calculations2", calculations2);
+        }
 
-        BigDecimal interests = mortgageService.calculateInterestsCost(mortgage, userMortgage.getAmount(), userMortgage.getCreditPeriod(), payment, serviceCharge, insurance);
-        model.addAttribute("interests", interests);
+        if (mortgageId3 > 0) {
+            boolean testMortgage3 = true;
+            model.addAttribute("testMortgage3", testMortgage3);
 
-        BigDecimal totalCost = mortgageService.calculateTotalCost(mortgage, userMortgage.getAmount(), userMortgage.getCreditPeriod(), payment);
-        model.addAttribute("totalCost", totalCost);
-
+            CalculationsMortgage calculations3 = calculateMortgageParameteres(mortgageId3, userMortgage);
+            model.addAttribute("calculations3", calculations3);
+        }
         model.addAttribute("userMortgage", userMortgage);
 
         return "mortgagedetails";
@@ -74,5 +78,21 @@ public class HomeMortgageController {
     @ModelAttribute("answears")
     public List<String> answears() {
         return List.of("TAK", "NIE");
+    }
+
+    public CalculationsMortgage calculateMortgageParameteres(Long mortgageId, UserMortgage userMortgage) {
+        Mortgage mortgage = mortgageRepository.findById(mortgageId).orElse(new Mortgage());
+
+        BigDecimal payment = mortgageService.calculateChoosenMortgagePayment(mortgage, userMortgage.getAmount(), userMortgage.getCreditPeriod());
+
+        BigDecimal serviceCharge = mortgageService.calculateServiceCharge(mortgage, userMortgage.getAmount());
+
+        BigDecimal insurance = mortgageService.calculateInsurance(mortgage, userMortgage.getAmount());
+
+        BigDecimal interests = mortgageService.calculateInterestsCost(mortgage, userMortgage.getAmount(), userMortgage.getCreditPeriod(), payment, serviceCharge, insurance);
+
+        BigDecimal totalCost = mortgageService.calculateTotalCost(mortgage, userMortgage.getAmount(), userMortgage.getCreditPeriod(), payment);
+
+        return new CalculationsMortgage(mortgage, payment, serviceCharge, insurance, interests, totalCost);
     }
 }

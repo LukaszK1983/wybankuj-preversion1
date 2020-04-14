@@ -28,14 +28,16 @@
         <span class="span-h3">Lista oddziałów</span></h3>
 
     <div class="float-right">
-        <form action="${pageContext.request.contextPath}/listOfAgencies" method="post">
+        <form action="${pageContext.request.contextPath}/listOfAgenciesMortgage" method="post">
             <input type="hidden" name="bankId" value="${bank.id}"/>
-            <input type="hidden" name="amount" value="${userLoan.amount}"/>
-            <input type="hidden" name="creditPeriod" value="${userLoan.creditPeriod}"/>
+            <input type="hidden" name="cost" value="${userMortgage.cost}"/>
+            <input type="hidden" name="amount" value="${userMortgage.amount}"/>
+            <input type="hidden" name="creditPeriod" value="${userMortgage.creditPeriod}"/>
+            <input type="hidden" name="contributionPercent" value="${userMortgage.contributionPercent}"/>
             <input type="hidden" name="offer" value="${offer}"/>
-            <input type="hidden" name="age" value="${userLoan.age}"/>
-            <input type="hidden" name="chooseServiceCharge" value="${userLoan.chooseServiceCharge}"/>
-            <input type="hidden" name="chooseInsurance" value="${userLoan.chooseInsurance}"/>
+            <input type="hidden" name="age" value="${userMortgage.age}"/>
+            <input type="hidden" name="chooseServiceCharge" value="${userMortgage.chooseServiceCharge}"/>
+            <input type="hidden" name="chooseInsurance" value="${userMortgage.chooseInsurance}"/>
             <p style="color: #1C3752">Wyszukaj wg miasta:
                 <label><input type="text" name="city"/></label>
                 <label><input type="submit" value="SZUKAJ" class="btn btn-sm btn-primary rounded"/></label></p>
@@ -46,13 +48,15 @@
             <div>
                 <p style="color: #1C3752">Brak oddziału banku w wybranym mieście. Wyszukaj inną
                     lokalizację.</p>
-                <form action="${pageContext.request.contextPath}/loanParameters" method="post"
-                      modelattribute="userLoan">
-                    <input type="hidden" name="amount" value="${userLoan.amount}"/>
-                    <input type="hidden" name="creditPeriod" value="${userLoan.creditPeriod}"/>
-                    <input type="hidden" name="age" value="${userLoan.age}"/>
-                    <input type="hidden" name="chooseServiceCharge" value="${userLoan.chooseServiceCharge}"/>
-                    <input type="hidden" name="chooseInsurance" value="${userLoan.chooseInsurance}"/>
+                <form action="${pageContext.request.contextPath}/mortgageParameters" method="post"
+                      modelattribute="userMortgage">
+                    <input type="hidden" name="cost" value="${userMortgage.cost}"/>
+                    <input type="hidden" name="amount" value="${userMortgage.amount}"/>
+                    <input type="hidden" name="creditPeriod" value="${userMortgage.creditPeriod}"/>
+                    <input type="hidden" name="contributionPercent" value="${userMortgage.contributionPercent}"/>
+                    <input type="hidden" name="age" value="${userMortgage.age}"/>
+                    <input type="hidden" name="chooseServiceCharge" value="${userMortgage.chooseServiceCharge}"/>
+                    <input type="hidden" name="chooseInsurance" value="${userMortgage.chooseInsurance}"/>
                     <p style="color: #1C3752"><input type="submit" value="Powrót do listy ofert" class="btn btn-sm btn-primary rounded"/></p>
                 </form>
             </div>
@@ -81,19 +85,23 @@
                             <td style="vertical-align: middle">${agency.email}</td>
                             <td style="vertical-align: middle">${agency.hours}</td>
                             <td style="vertical-align: middle">
-                                <a href="${pageContext.request.contextPath}/agencyContactForm?agencyId=${agency.id}&amount=${userLoan.amount}&creditPeriod=${userLoan.creditPeriod}&offer=${offer}
-&age=${userLoan.age}&chooseServiceCharge=${userLoan.chooseServiceCharge}&chooseInsurance=${userLoan.chooseInsurance}"
+                                <a href="${pageContext.request.contextPath}/agencyContactFormMortgage?agencyId=${agency.id}&cost=${userMortgage.cost}&amount=${userMortgage.amount}&creditPeriod=${userMortgage.creditPeriod}&contributionPercent=${userMortgage.contributionPercent}&offer=${offer}
+&age=${userMortgage.age}&chooseServiceCharge=${userMortgage.chooseServiceCharge}&chooseInsurance=${userMortgage.chooseInsurance}"
                                    class="btn btn-sm btn-outline-info rounded">Formularz kontaktowy</a></td>
                         </tr>
                     </c:forEach>
                     <tr>
-                        <form action="${pageContext.request.contextPath}/loanParameters" method="post"
-                              modelattribute="userLoan">
-                            <input type="hidden" name="amount" value="${userLoan.amount}"/>
-                            <input type="hidden" name="creditPeriod" value="${userLoan.creditPeriod}"/>
-                            <input type="hidden" name="age" value="${userLoan.age}"/>
-                            <input type="hidden" name="chooseServiceCharge" value="${userLoan.chooseServiceCharge}"/>
-                            <input type="hidden" name="chooseInsurance" value="${userLoan.chooseInsurance}"/>
+                        <form action="${pageContext.request.contextPath}/mortgageParameters" method="post"
+                              modelattribute="userMortgage">
+                            <input type="hidden" name="bankId" value="${bank.id}"/>
+                            <input type="hidden" name="cost" value="${userMortgage.cost}"/>
+                            <input type="hidden" name="amount" value="${userMortgage.amount}"/>
+                            <input type="hidden" name="creditPeriod" value="${userMortgage.creditPeriod}"/>
+                            <input type="hidden" name="contributionPercent" value="${userMortgage.contributionPercent}"/>
+                            <input type="hidden" name="offer" value="${offer}"/>
+                            <input type="hidden" name="age" value="${userMortgage.age}"/>
+                            <input type="hidden" name="chooseServiceCharge" value="${userMortgage.chooseServiceCharge}"/>
+                            <input type="hidden" name="chooseInsurance" value="${userMortgage.chooseInsurance}"/>
                             <input type="submit" value="Powrót do listy ofert" class="btn btn-sm btn-primary rounded"/>
                         </form>
                     </tr>
