@@ -186,23 +186,23 @@
                 </td>
                 <td>
                     <a href="${pageContext.request.contextPath}/agencyContactForm?bankId=${calculations1.loan.bank.id}&offer=${calculations1.loan.offer}&amount=${userLoan.amount}&creditPeriod=${userLoan.creditPeriod}&age=${userLoan.age}&chooseServiceCharge=${userLoan.chooseServiceCharge}&chooseInsurance=${userLoan.chooseInsurance}"
-                       class="btn btn-sm btn-outline-success rounded">Wybierz oddział do kontaktu</a>
+                       class="btn btn-sm btn-outline-success rounded">Formularz kontaktowy</a>
                 </td>
                 <c:choose>
                     <c:when test="${testLoan2}">
                         <td>
-                            <a href="${pageContext.request.contextPath}/listOfAgencies?bankId=${calculations2.loan.bank.id}&offer=${calculations2.loan.offer}&amount=${userLoan.amount}&creditPeriod=${userLoan.creditPeriod}
+                            <a href="${pageContext.request.contextPath}/agencyContactForm?bankId=${calculations2.loan.bank.id}&offer=${calculations2.loan.offer}&amount=${userLoan.amount}&creditPeriod=${userLoan.creditPeriod}&age=${userLoan.age}&chooseServiceCharge=${userLoan.chooseServiceCharge}&chooseInsurance=${userLoan.chooseInsurance}"
 &age=${userLoan.age}&chooseServiceCharge=${userLoan.chooseServiceCharge}&chooseInsurance=${userLoan.chooseInsurance}"
-                               class="btn btn-sm btn-outline-success rounded">Wybierz oddział do kontaktu</a>
+                               class="btn btn-sm btn-outline-success rounded">Formularz kontaktowy</a>
                         </td>
                     </c:when>
                 </c:choose>
                 <c:choose>
                     <c:when test="${testLoan3}">
                         <td>
-                            <a href="${pageContext.request.contextPath}/listOfAgencies?bankId=${calculations3.loan.bank.id}&offer=${calculations3.loan.offer}&amount=${userLoan.amount}&creditPeriod=${userLoan.creditPeriod}
+                            <a href="${pageContext.request.contextPath}/agencyContactForm?bankId=${calculations3.loan.bank.id}&offer=${calculations3.loan.offer}&amount=${userLoan.amount}&creditPeriod=${userLoan.creditPeriod}&age=${userLoan.age}&chooseServiceCharge=${userLoan.chooseServiceCharge}&chooseInsurance=${userLoan.chooseInsurance}"
 &age=${userLoan.age}&chooseServiceCharge=${userLoan.chooseServiceCharge}&chooseInsurance=${userLoan.chooseInsurance}"
-                               class="btn btn-sm btn-outline-success rounded">Wybierz oddział do kontaktu</a>
+                               class="btn btn-sm btn-outline-success rounded">Formularz kontaktowy</a>
                         </td>
                     </c:when>
                 </c:choose>

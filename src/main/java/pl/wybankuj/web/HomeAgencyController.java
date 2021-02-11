@@ -123,18 +123,17 @@ public class HomeAgencyController {
 }
 
     @PostMapping("/agencyContactForm")
-    public String sendAgencyContactForm(@RequestParam Long agencyId, @RequestParam String name,
+    public String sendAgencyContactForm(@RequestParam Long bankId, @RequestParam String name,
                                         @RequestParam String message, @RequestParam int amount,
                                         @RequestParam int creditPeriod, @RequestParam String offer,
                                         @RequestParam int age, @RequestParam String chooseServiceCharge,
                                         @RequestParam String chooseInsurance, Model model) {
 
-        String agencyMail = agencyRepository.findById(agencyId).get().getEmail();
         String title = "Wiadomość z Wybankuj.pl - " + name;
-        emailService.send(agencyMail, title, message);
+        emailService.send("bank@wybankuj.pl", title, message);
         String answear = "yes";
 
-        model.addAttribute("agency", agencyRepository.findById(agencyId));
+        model.addAttribute("bank", bankRepository.findById(bankId));
 
         UserLoan userLoan = new UserLoan(amount, creditPeriod, age, chooseServiceCharge, chooseInsurance);
         model.addAttribute("userLoan", userLoan);
