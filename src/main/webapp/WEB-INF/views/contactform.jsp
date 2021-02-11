@@ -34,7 +34,7 @@
         <c:when test="${empty answear}">
             <div class="form-group" style="text-align: center">
                 <form action="${pageContext.request.contextPath}/loanParameters" method="post">
-                    <input type="hidden" name="bankId" value="${bank.get().id}"/>
+                    <input type="hidden" name="bankId" value="${bank.id}"/>
                     <input type="hidden" name="amount" value="${userLoan.amount}"/>
                     <input type="hidden" name="creditPeriod" value="${userLoan.creditPeriod}"/>
                     <input type="hidden" name="offer" value="${offer}"/>
@@ -50,7 +50,7 @@
 
             <div class="form-group" style="text-align: center">
                 <form action="${pageContext.request.contextPath}/loanParameters" method="post">
-                    <input type="hidden" name="bankId" value="${bank.get().id}"/>
+                    <input type="hidden" name="bankId" value="${bank.id}"/>
                     <input type="hidden" name="amount" value="${userLoan.amount}"/>
                     <input type="hidden" name="creditPeriod" value="${userLoan.creditPeriod}"/>
                     <input type="hidden" name="offer" value="${offer}"/>
@@ -97,7 +97,7 @@
                 </label>
             </div>
             <div class="form-group" style="text-align: center">
-                <input type="hidden" name="bankId" value="${bank.get().id}"/>
+                <input type="hidden" name="bankId" value="${bank.id}"/>
                 <input type="hidden" name="amount" value="${userLoan.amount}"/>
                 <input type="hidden" name="creditPeriod" value="${userLoan.creditPeriod}"/>
                 <input type="hidden" name="offer" value="${offer}"/>
