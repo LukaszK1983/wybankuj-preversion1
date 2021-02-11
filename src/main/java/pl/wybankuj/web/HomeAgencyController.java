@@ -70,20 +70,57 @@ public class HomeAgencyController {
         return "listofagencies";
     }
 
+//    @GetMapping("/agencyContactForm")
+//    public String agencyContactForm(@RequestParam Long agencyId, @RequestParam int amount,
+//                                    @RequestParam int creditPeriod, @RequestParam String offer,
+//                                    @RequestParam int age, @RequestParam String chooseServiceCharge,
+//                                    @RequestParam String chooseInsurance, Model model) {
+//
+//        model.addAttribute("agency", agencyRepository.findById(agencyId));
+//        model.addAttribute("offer", offer);
+//
+//        UserLoan userLoan = new UserLoan(amount, creditPeriod, age, chooseServiceCharge, chooseInsurance);
+//        model.addAttribute("userLoan", userLoan);
+//
+//        return "contactform";
+//    }
+//
+//    @PostMapping("/agencyContactForm")
+//    public String sendAgencyContactForm(@RequestParam Long agencyId, @RequestParam String name,
+//                                        @RequestParam String message, @RequestParam int amount,
+//                                        @RequestParam int creditPeriod, @RequestParam String offer,
+//                                        @RequestParam int age, @RequestParam String chooseServiceCharge,
+//                                        @RequestParam String chooseInsurance, Model model) {
+//
+//        String agencyMail = agencyRepository.findById(agencyId).get().getEmail();
+//        String title = "Wiadomość z Wybankuj.pl - " + name;
+//        emailService.send(agencyMail, title, message);
+//        String answear = "yes";
+//
+//        model.addAttribute("agency", agencyRepository.findById(agencyId));
+//
+//        UserLoan userLoan = new UserLoan(amount, creditPeriod, age, chooseServiceCharge, chooseInsurance);
+//        model.addAttribute("userLoan", userLoan);
+//
+//        model.addAttribute("offer", offer);
+//        model.addAttribute("answear", answear);
+//
+//        return "contactform";
+//    }
     @GetMapping("/agencyContactForm")
-    public String agencyContactForm(@RequestParam Long agencyId, @RequestParam int amount,
-                                    @RequestParam int creditPeriod, @RequestParam String offer,
-                                    @RequestParam int age, @RequestParam String chooseServiceCharge,
-                                    @RequestParam String chooseInsurance, Model model) {
+    public String agencyContactForm(@RequestParam Long bankId, @RequestParam int amount,
+                                @RequestParam int creditPeriod, @RequestParam String offer,
+                                @RequestParam int age, @RequestParam String chooseServiceCharge,
+                                @RequestParam String chooseInsurance, Model model) {
 
-        model.addAttribute("agency", agencyRepository.findById(agencyId));
+        model.addAttribute("bank", bankRepository.findById(bankId));
         model.addAttribute("offer", offer);
 
         UserLoan userLoan = new UserLoan(amount, creditPeriod, age, chooseServiceCharge, chooseInsurance);
         model.addAttribute("userLoan", userLoan);
 
         return "contactform";
-    }
+}
 
     @PostMapping("/agencyContactForm")
     public String sendAgencyContactForm(@RequestParam Long agencyId, @RequestParam String name,

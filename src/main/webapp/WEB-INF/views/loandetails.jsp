@@ -185,8 +185,7 @@
                     </form>
                 </td>
                 <td>
-                    <a href="${pageContext.request.contextPath}/listOfAgencies?bankId=${calculations1.loan.bank.id}&offer=${calculations1.loan.offer}&amount=${userLoan.amount}&creditPeriod=${userLoan.creditPeriod}
-&age=${userLoan.age}&chooseServiceCharge=${userLoan.chooseServiceCharge}&chooseInsurance=${userLoan.chooseInsurance}"
+                    <a href="${pageContext.request.contextPath}/agencyContactForm?bankId=${calculations1.loan.bank.id}&offer=${calculations1.loan.offer}&amount=${userLoan.amount}&creditPeriod=${userLoan.creditPeriod}&age=${userLoan.age}&chooseServiceCharge=${userLoan.chooseServiceCharge}&chooseInsurance=${userLoan.chooseInsurance}"
                        class="btn btn-sm btn-outline-success rounded">Wybierz oddział do kontaktu</a>
                 </td>
                 <c:choose>
