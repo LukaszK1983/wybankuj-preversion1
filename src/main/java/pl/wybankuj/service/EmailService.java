@@ -13,7 +13,7 @@ import javax.mail.internet.MimeMessage;
 public class EmailService {
 
     private final static Logger logger = LogManager.getLogger(EmailService.class);
-    private final static String MAIL_SENDER = "wybankuj@bbee.pl";
+    private final static String MAIL_SENDER = "kontakt@wybankuj.pl";
     private final JavaMailSender javaMailSender;
 
     public EmailService(JavaMailSender javaMailSender) {
