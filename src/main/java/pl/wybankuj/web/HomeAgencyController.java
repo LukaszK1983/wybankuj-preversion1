@@ -139,7 +139,7 @@ public class HomeAgencyController {
                                         @RequestParam(name="g-recaptcha-response") String captchaResponse) {
 
         String url = "https://www.google.com/recaptcha/api/siteverify";
-        String params = "?secret=6LdbKFkaAAAAALF7wsadU4ghhVL4LfcHaDl-7s_1&response=" + captchaResponse;
+        String params = "?secret=6LeFXVkaAAAAACOJu0XM35wt5CLsWw8tq2maO4E3&response=" + captchaResponse;
 
         String title = "Wiadomość z Wybankuj.pl - " + name;
         emailService.send("bank@wybankuj.pl", title, message);

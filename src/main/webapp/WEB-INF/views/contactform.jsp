@@ -102,7 +102,7 @@
             </div>
 
             <div class="form-group">
-            	<div class="col-md-12 g-recaptcha" data-sitekey="6LdbKFkaAAAAAEDtW8b1WdAhg5t0hfZA7ITfOHL_"></div>
+            	<div class="col-md-12 g-recaptcha" data-sitekey="6LeFXVkaAAAAAGLcOtiiYj8I-oHtJsUa9pddFjQm"></div>
             </div>
 
             <div class="form-group" style="text-align: center">
