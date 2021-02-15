@@ -93,8 +93,11 @@
             </div>
             <div class="form-group form-check">
                 <label class="form-check-label">
-                <input class="form-check-input" type="checkbox" value="" checked>Wyrażam zgodę na kontakt doradcy banku ${bank.get().bankName} w celu przekazania mi informacji dotyczących szczegółów oferty banku, wymaganej listy dokumentów oraz kolejnych kroków procesu kredytowego, a także na przedstawienie propozycji spotkania w placówce banku.
+                <input class="form-check-input" type="checkbox" id="formagree" value="" checked>Wyrażam zgodę na kontakt doradcy banku ${bank.get().bankName} w celu przekazania mi informacji dotyczących szczegółów oferty banku, wymaganej listy dokumentów oraz kolejnych kroków procesu kredytowego, a także na przedstawienie propozycji spotkania w placówce banku.
                 </label>
+                <div class="invalid-feedback" id="validagree">
+                    Wyrażenie powyższej zgody jest dobrowolne, ale jednocześnie konieczne, aby pracownik banku mógł się z Tobą skontaktować.
+                </div>
             </div>
             <div class="form-group" style="text-align: center">
                 <input type="hidden" name="bankId" value="${bank.get().id}"/>
