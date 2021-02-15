@@ -142,8 +142,6 @@ public class HomeAgencyController {
         String params = "?secret=6LeFXVkaAAAAACOJu0XM35wt5CLsWw8tq2maO4E3&response=" + captchaResponse;
 
         String title = "Wiadomość z Wybankuj.pl - " + name;
-        emailService.send("bank@wybankuj.pl", title, message);
-        String answear = "yes";
 
         model.addAttribute("bank", bankRepository.findById(bankId));
 
@@ -151,14 +149,19 @@ public class HomeAgencyController {
         model.addAttribute("userLoan", userLoan);
 
         model.addAttribute("offer", offer);
-        model.addAttribute("answear", answear);
 
         ReCaptchaResponse reCaptchaResponse = restTemplate.exchange(url+params, HttpMethod.POST, null, ReCaptchaResponse.class).getBody();
         if(reCaptchaResponse.isSuccess()) {
+            emailService.send("bank@wybankuj.pl", title, message);
+            String answer = "yes";
+            model.addAttribute("answer", answer);
+
             return "contactform";
         } else {
-            message = "Please verify captcha";
-            return "redirect:/";
+            String answer = "no";
+            model.addAttribute("answer", answer);
+
+            return "contactform";
         }
     }
 

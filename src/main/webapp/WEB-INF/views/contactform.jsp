@@ -32,37 +32,28 @@
     </h3>
 
     <c:choose>
-        <c:when test="${empty answear}">
-            <div class="form-group" style="text-align: center">
-                <form action="${pageContext.request.contextPath}/loanParameters" method="post">
-                    <input type="hidden" name="bankId" value="${bank.get().id}"/>
-                    <input type="hidden" name="amount" value="${userLoan.amount}"/>
-                    <input type="hidden" name="creditPeriod" value="${userLoan.creditPeriod}"/>
-                    <input type="hidden" name="offer" value="${offer}"/>
-                    <input type="hidden" name="age" value="${userLoan.age}"/>
-                    <input type="hidden" name="chooseServiceCharge" value="${userLoan.chooseServiceCharge}"/>
-                    <input type="hidden" name="chooseInsurance" value="${userLoan.chooseInsurance}"/>
-                    <p><input type="submit" value="Lista ofert" class="btn btn-sm btn-warning rounded"/></p>
-                </form>
-            </div>
+        <c:when test="${empty answer}">
+        </c:when>
+        <c:when test="${answer == 'no'}">
+            <h4 class="h4-send-msg">Proszę zaznaczyć pole <b>Nie jestem robotem</b></h4>
         </c:when>
         <c:otherwise>
             <h4 class="h4-send-msg">Wiadomość została wysłana. Dziękujemy za kontakt.</h4>
-
-            <div class="form-group" style="text-align: center">
-                <form action="${pageContext.request.contextPath}/loanParameters" method="post">
-                    <input type="hidden" name="bankId" value="${bank.get().id}"/>
-                    <input type="hidden" name="amount" value="${userLoan.amount}"/>
-                    <input type="hidden" name="creditPeriod" value="${userLoan.creditPeriod}"/>
-                    <input type="hidden" name="offer" value="${offer}"/>
-                    <input type="hidden" name="age" value="${userLoan.age}"/>
-                    <input type="hidden" name="chooseServiceCharge" value="${userLoan.chooseServiceCharge}"/>
-                    <input type="hidden" name="chooseInsurance" value="${userLoan.chooseInsurance}"/>
-                    <p><input type="submit" value="Lista ofert" class="btn btn-sm btn-warning rounded"/></p>
-                </form>
-            </div>
         </c:otherwise>
     </c:choose>
+
+    <div class="form-group" style="text-align: center">
+        <form action="${pageContext.request.contextPath}/loanParameters" method="post">
+            <input type="hidden" name="bankId" value="${bank.get().id}"/>
+            <input type="hidden" name="amount" value="${userLoan.amount}"/>
+            <input type="hidden" name="creditPeriod" value="${userLoan.creditPeriod}"/>
+            <input type="hidden" name="offer" value="${offer}"/>
+            <input type="hidden" name="age" value="${userLoan.age}"/>
+            <input type="hidden" name="chooseServiceCharge" value="${userLoan.chooseServiceCharge}"/>
+            <input type="hidden" name="chooseInsurance" value="${userLoan.chooseInsurance}"/>
+            <p><input type="submit" value="Lista ofert" class="btn btn-sm btn-warning rounded"/></p>
+        </form>
+    </div>
 
     <div class="div-contact-form">
         <form action="${pageContext.request.contextPath}/agencyContactForm" method="post">
