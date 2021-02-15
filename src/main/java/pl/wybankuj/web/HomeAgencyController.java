@@ -1,14 +1,18 @@
 package pl.wybankuj.web;
 
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.http.HttpMethod;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestParam;
+import org.springframework.web.client.RestTemplate;
 import pl.wybankuj.entity.Agency;
 import pl.wybankuj.entity.Bank;
 import pl.wybankuj.entity.UserLoan;
 import pl.wybankuj.entity.UserMortgage;
+import pl.wybankuj.modal.ReCaptchaResponse;
 import pl.wybankuj.repository.AgencyRepository;
 import pl.wybankuj.repository.BankRepository;
 import pl.wybankuj.service.EmailService;
@@ -20,10 +24,12 @@ import java.util.List;
 @Controller
 public class HomeAgencyController {
 
-    private final String CAPTCHA_KEY = "6LdbKFkaAAAAAEDtW8b1WdAhg5t0hfZA7ITfOHL_";
     private final EmailService emailService;
     private final AgencyRepository agencyRepository;
     private final BankRepository bankRepository;
+
+    @Autowired
+    private RestTemplate restTemplate;
 
     public HomeAgencyController(EmailService emailService, AgencyRepository agencyRepository, BankRepository bankRepository) {
         this.emailService = emailService;
@@ -130,7 +136,10 @@ public class HomeAgencyController {
                                         @RequestParam int creditPeriod, @RequestParam String offer,
                                         @RequestParam int age, @RequestParam String chooseServiceCharge,
                                         @RequestParam String chooseInsurance, Model model,
-                                        HttpServletRequest request) {
+                                        @RequestParam(name="g-recaptcha-response") String captchaResponse) {
+
+        String url = "https://www.google.com/recaptcha/api/siteverify";
+        String params = "?secret=6LdbKFkaAAAAALF7wsadU4ghhVL4LfcHaDl-7s_1&response=" + captchaResponse;
 
         String title = "Wiadomość z Wybankuj.pl - " + name;
         emailService.send("bank@wybankuj.pl", title, message);
@@ -144,7 +153,8 @@ public class HomeAgencyController {
         model.addAttribute("offer", offer);
         model.addAttribute("answear", answear);
 
-        if(CAPTCHA_KEY.equals(request.getSession().getAttribute("captcha"))) {
+        ReCaptchaResponse reCaptchaResponse = restTemplate.exchange(url+params, HttpMethod.POST, null, ReCaptchaResponse.class).getBody();
+        if(reCaptchaResponse.isSuccess()) {
             return "contactform";
         } else {
             message = "Please verify captcha";

@@ -15,6 +15,7 @@
     href="https://cdn.jsdelivr.net/npm/bootstrap-select@1.13.9/dist/css/bootstrap-select.min.css">
     <script src="https://cdn.jsdelivr.net/npm/bootstrap-select@1.13.9/dist/js/bootstrap-select.min.js"></script>
     <script src="${pageContext.request.contextPath}/js/appcontact.js"></script>
+    <script src='https://www.google.com/recaptcha/api.js'></script>
 </head>
 <body>
     <div id="fb-root"></div>
@@ -101,12 +102,7 @@
             </div>
 
             <div class="form-group">
-            	<div class="col-md-6">
-            		<img alt="captcha" src="${path}/captcha-servlet">
-            	</div>
-            	<div class="col-md-6">
-            		<input class="form-control" name="captcha" placeholder="" required="true" />
-            	</div>
+            	<div class="col-md-12 g-recaptcha" data-sitekey="6LdbKFkaAAAAAEDtW8b1WdAhg5t0hfZA7ITfOHL_"></div>
             </div>
 
             <div class="form-group" style="text-align: center">
