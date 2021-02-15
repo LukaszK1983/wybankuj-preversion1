@@ -72,9 +72,9 @@ $(document).ready(function () {
             testAgree = true;
         }
 
-        const dogElement = $('#divdog').hide();
-        const dogElement2 = $('#formdog').hide();
+        const dogElement = $('#formdog');
         const dog = dogElement.val();
+        dogElement.hide();
 
         if (dog === '') {
             dogElement.css('border', '1px solid green');
