@@ -72,7 +72,8 @@ $(document).ready(function () {
             testAgree = true;
         }
 
-        const dogElement = $('#dog').hide();
+        const dogElement = $('#divdog').hide();
+        const dogElement2 = $('#formdog').hide();
         const dog = dogElement.val();
 
         if (dog === '') {
