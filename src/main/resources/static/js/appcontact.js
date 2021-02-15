@@ -60,15 +60,15 @@ $(document).ready(function () {
         const agreeElement = $('#formagree');
         const validagree = $('#validagree').hide();
 
-        if (!agreeElement.checked) {
+        if (agreeElement.checked) {
+            agreeElement.css('border', '1px solid green');
+            agreeElement.css('box-shadow', '0 0 0 0');
+            testAgree = true;
+        } else {
             validagree.show();
             agreeElement.css('border', '1px solid #C24754');
             agreeElement.css('box-shadow', '0 0 10px 1px #C24754');
             testAgree = false;
-        } else {
-            agreeElement.css('border', '1px solid green');
-            agreeElement.css('box-shadow', '0 0 0 0');
-            testAgree = true;
         }
 
         if (testUser === true && testEmail === true && testPhone === true && testAgree === true) {
