@@ -192,7 +192,6 @@
                     <c:when test="${testLoan2}">
                         <td>
                             <a href="${pageContext.request.contextPath}/agencyContactForm?bankId=${calculations2.loan.bank.id}&offer=${calculations2.loan.offer}&amount=${userLoan.amount}&creditPeriod=${userLoan.creditPeriod}&age=${userLoan.age}&chooseServiceCharge=${userLoan.chooseServiceCharge}&chooseInsurance=${userLoan.chooseInsurance}"
-&age=${userLoan.age}&chooseServiceCharge=${userLoan.chooseServiceCharge}&chooseInsurance=${userLoan.chooseInsurance}"
                                class="btn btn-sm btn-outline-success rounded">Formularz kontaktowy</a>
                         </td>
                     </c:when>
@@ -201,27 +200,11 @@
                     <c:when test="${testLoan3}">
                         <td>
                             <a href="${pageContext.request.contextPath}/agencyContactForm?bankId=${calculations3.loan.bank.id}&offer=${calculations3.loan.offer}&amount=${userLoan.amount}&creditPeriod=${userLoan.creditPeriod}&age=${userLoan.age}&chooseServiceCharge=${userLoan.chooseServiceCharge}&chooseInsurance=${userLoan.chooseInsurance}"
-&age=${userLoan.age}&chooseServiceCharge=${userLoan.chooseServiceCharge}&chooseInsurance=${userLoan.chooseInsurance}"
                                class="btn btn-sm btn-outline-success rounded">Formularz kontaktowy</a>
                         </td>
                     </c:when>
                 </c:choose>
             </tr>
-<%--            <tr>--%>
-<%--                <td></td>--%>
-<%--                <td>--%>
-<%--                    <form action="${pageContext.request.contextPath}/generateOffer" method="post"--%>
-<%--                          modelAttribute="userLoan">--%>
-<%--                        <input type="hidden" name="loanId" value="${loan.id}">--%>
-<%--                        <input type="hidden" name="amount" value="${userLoan.amount}">--%>
-<%--                        <input type="hidden" name="creditPeriod" value="${userLoan.creditPeriod}">--%>
-<%--                        <input type="hidden" name="age" value="${userLoan.age}">--%>
-<%--                        <input type="hidden" name="chooseServiceCharge" value="${userLoan.chooseServiceCharge}">--%>
-<%--                        <input type="hidden" name="chooseInsurance" value="${userLoan.chooseInsurance}">--%>
-<%--                        <input type="submit" value="Wydruk do PDF" class="btn btn-sm btn-outline-success rounded">--%>
-<%--                    </form>--%>
-<%--                </td>--%>
-<%--            </tr>--%>
         </table>
     </div>
 
