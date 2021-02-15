@@ -99,6 +99,12 @@
                     Wyrażenie powyższej zgody jest dobrowolne, ale jednocześnie konieczne, aby pracownik banku mógł się z Tobą skontaktować.
                 </div>
             </div>
+            <div class="form-group" id="dog">
+                <label for="formdog" class="label-title">Dog:</label>
+                <input type="text" class="form-control" id="formdog" placeholder="Wprowadź doga"
+                name="dog">
+                <div class="invalid-feedback" id="validdog">Wprowadzono błędne dane</div>
+            </div>
             <div class="form-group" style="text-align: center">
                 <input type="hidden" name="bankId" value="${bank.get().id}"/>
                 <input type="hidden" name="amount" value="${userLoan.amount}"/>
