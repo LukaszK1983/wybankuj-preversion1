@@ -13,12 +13,14 @@ import pl.wybankuj.repository.AgencyRepository;
 import pl.wybankuj.repository.BankRepository;
 import pl.wybankuj.service.EmailService;
 
+import javax.servlet.http.HttpServletRequest;
 import java.math.BigDecimal;
 import java.util.List;
 
 @Controller
 public class HomeAgencyController {
 
+    private final String CAPTCHA_KEY = "6LdbKFkaAAAAAEDtW8b1WdAhg5t0hfZA7ITfOHL_";
     private final EmailService emailService;
     private final AgencyRepository agencyRepository;
     private final BankRepository bankRepository;
@@ -127,7 +129,8 @@ public class HomeAgencyController {
                                         @RequestParam String message, @RequestParam int amount,
                                         @RequestParam int creditPeriod, @RequestParam String offer,
                                         @RequestParam int age, @RequestParam String chooseServiceCharge,
-                                        @RequestParam String chooseInsurance, Model model) {
+                                        @RequestParam String chooseInsurance, Model model,
+                                        HttpServletRequest request) {
 
         String title = "Wiadomość z Wybankuj.pl - " + name;
         emailService.send("bank@wybankuj.pl", title, message);
@@ -141,7 +144,12 @@ public class HomeAgencyController {
         model.addAttribute("offer", offer);
         model.addAttribute("answear", answear);
 
-        return "contactform";
+        if(CAPTCHA_KEY.equals(request.getSession().getAttribute("captcha"))) {
+            return "contactform";
+        } else {
+            message = "Please verify captcha";
+            return "redirect:/";
+        }
     }
 
     @GetMapping("/listOfAgenciesMortgage")

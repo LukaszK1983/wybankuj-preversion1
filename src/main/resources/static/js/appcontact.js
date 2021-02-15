@@ -8,7 +8,6 @@ $(document).ready(function () {
         let testEmail = true;
         let testPhone = true;
         let testAgree = true;
-        let testDog = true;
 
         const userElement = $('#formuser');
         const user = userElement.val();
@@ -72,22 +71,7 @@ $(document).ready(function () {
             testAgree = true;
         }
 
-        const dogElement = $('#formdog');
-        const dog = dogElement.val();
-        dogElement.hide();
-
-        if (dog === '') {
-            dogElement.css('border', '1px solid green');
-            dogElement.css('box-shadow', '0 0 0 0');
-            testDog = true;
-        } else {
-            dogElement.css('border', '1px solid #C24754');
-            dogElement.css('box-shadow', '0 0 10px 1px #C24754');
-            testDog = false;
-        }
-
-
-        if (testUser === true && testEmail === true && testPhone === true && testAgree === true && testDog === true) {
+        if (testUser === true && testEmail === true && testPhone === true && testAgree === true) {
             const message = $('#formmessage');
             const firstPart = message.val() + '<br /><br />';
             const namePart = 'Imię i nazwisko: ' + user + '<br />';

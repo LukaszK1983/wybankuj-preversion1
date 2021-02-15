@@ -99,7 +99,16 @@
                     Wyrażenie powyższej zgody jest dobrowolne, ale jednocześnie konieczne, aby pracownik banku mógł się z Tobą skontaktować.
                 </div>
             </div>
-                <input type="text" class="form-control" id="formdog" placeholder="Wprowadź doga" name="dog">
+
+            <div class="form-group">
+            	<div class="col-md-6">
+            		<img alt="captcha" src="${path}/captcha-servlet">
+            	</div>
+            	<div class="col-md-6">
+            		<input class="form-control" name="captcha" placeholder="" required="true" />
+            	</div>
+            </div>
+
             <div class="form-group" style="text-align: center">
                 <input type="hidden" name="bankId" value="${bank.get().id}"/>
                 <input type="hidden" name="amount" value="${userLoan.amount}"/>
