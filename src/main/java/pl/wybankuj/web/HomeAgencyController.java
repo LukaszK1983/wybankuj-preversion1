@@ -140,7 +140,7 @@ public class HomeAgencyController {
     @PostMapping("/agencyContactForm")
     public String sendAgencyContactForm(@RequestParam Long bankId, @RequestParam String phone,
                                         @RequestParam String email, @RequestParam String name,
-                                        @RequestParam String message, @RequestParam int amount,
+                                        @RequestParam int amount,
                                         @RequestParam int creditPeriod, @RequestParam String offer,
                                         @RequestParam int age, @RequestParam String chooseServiceCharge,
                                         @RequestParam String chooseInsurance, Model model,

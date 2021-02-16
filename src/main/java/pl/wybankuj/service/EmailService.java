@@ -36,7 +36,7 @@ public class EmailService {
                             "<body>" +
                             "<div style='margin: auto; padding: 0; border: 0; border-bottom: 1em solid #1C3752; box-shadow: 0 4px 2px -2px #BF4042;'>"
                             + "<p style='margin-left: 3em; padding: 0;'><a href='http://wybankuj-preversion1.herokuapp.com'>" +
-//                            "<img src='cid:logo' style='width: 100px; height: 35px;' />" +
+                            "<img src='cid:logo' style='width: 100px; height: 35px;' />" +
                             "</a></p>" +
                             "</div>" +
                             "<br /><br />" +
@@ -55,7 +55,7 @@ public class EmailService {
                             "</body>" +
                             "</html>", true
             );
-//            helper.addInline("logo", new File("${pageContext.request.contextPath}/img/logo.png"));
+            helper.addInline("logo", new File("${pageContext.request.contextPath}/img/logo.png"));
             javaMailSender.send(mail);
             logger.info("Wiadomość została wysłana - " + title);
         } catch (MessagingException e) {
