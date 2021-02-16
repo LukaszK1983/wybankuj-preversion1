@@ -91,6 +91,10 @@
                 </div>
             </div>
 
+            <div class="form-group">
+            	<div class="col-md-12 g-recaptcha" data-sitekey="${siteKey}"></div>
+            </div>
+
             <div class="form-group" style="text-align: center">
                 <input type="hidden" name="bankId" value="${bank.get().id}"/>
                 <input type="hidden" name="cost" value="${userMortgage.cost}"/>
