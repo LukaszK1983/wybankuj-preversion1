@@ -76,12 +76,48 @@
                 <div class="invalid-feedback" id="validphone">Wprowadzono błędne dane - poprawny format: 000000000</div>
             </div>
             <div class="form-group">
-                <label for="formmessage" class="label-title">Wiadomość:</label>
-                <textarea class="form-control" id="formmessage" rows="7" name="message" style="color: #BF4042">
-                Dzień dobry,
-                interesuje mnie kredyt w ofercie ${offer} w kwocie ${userLoan.amount} zł na okres ${userLoan.creditPeriod} miesięcy. Proszę o kontakt.
-                Pozdrawiam
-                </textarea>
+                <label class="labelTitle">
+                    Interesuje mnie oferta <span className="spanColor">${offer}</span> o
+                    parametrach:
+                </label>
+                <div class="formControlInfoSend">
+                    <p>
+                        Kwota kredytu: <span className="spanColor">${userLoan.amount}</span>
+                    </p>
+                </div>
+                <div class="formControlInfoSend">
+                    <p>
+                        Okres kredytowania: <span className="spanColor">${userLoan.creditPeriod}</span>
+                    </p>
+                </div>
+                <div class="formControlInfoSend">
+                    <p>
+                        Prowizja przygotowawcza: <span className="spanColor">
+                        <c:choose>
+                            <c:when test="${userLoan.chooseServiceCharge == 'yes'}">
+                                TAK
+                            </c:when>
+                            <c:otherwise>
+                                NIE
+                            </c:otherwise>
+                        </c:choose>
+                </span>
+                    </p>
+                </div>
+                <div class="formControlInfoSend">
+                    <p>
+                        Ubezpieczenie: <span className="spanColor">
+                        <c:choose>
+                            <c:when test="${userLoan.chooseInsurance == 'yes'}">
+                                TAK
+                            </c:when>
+                            <c:otherwise>
+                                NIE
+                            </c:otherwise>
+                        </c:choose>
+                </span>
+                    </p>
+                </div>
             </div>
             <div class="form-group form-check">
                 <label class="form-check-label">

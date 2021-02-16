@@ -8,8 +8,6 @@
 
         <a class="nav-link-header" href="${pageContext.request.contextPath}/loanParameters">Kredyty Gotówkowe</a>
         <a class="nav-link-header" href="${pageContext.request.contextPath}/mortgageParameters">Kredyty Hipoteczne</a>
-        <a class="nav-link-header" href="javascript:void();" onclick="scrollToTop('#about');">O nas</a>
-        <a class="nav-link-header" href="javascript:void();" onclick="scrollToTop('#contact');">Kontakt</a>
 
     </nav>
 </header>

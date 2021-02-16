@@ -138,7 +138,8 @@ public class HomeAgencyController {
 }
 
     @PostMapping("/agencyContactForm")
-    public String sendAgencyContactForm(@RequestParam Long bankId, @RequestParam String name,
+    public String sendAgencyContactForm(@RequestParam Long bankId, @RequestParam String phone,
+                                        @RequestParam String email, @RequestParam String name,
                                         @RequestParam String message, @RequestParam int amount,
                                         @RequestParam int creditPeriod, @RequestParam String offer,
                                         @RequestParam int age, @RequestParam String chooseServiceCharge,
@@ -161,7 +162,7 @@ public class HomeAgencyController {
         ReCaptchaResponse reCaptchaResponse = restTemplate.exchange(url+params, HttpMethod.POST, null, ReCaptchaResponse.class).getBody();
         assert reCaptchaResponse != null;
         if(reCaptchaResponse.isSuccess()) {
-            emailService.send("bank@wybankuj.pl", title, message);
+            emailService.send("bank@wybankuj.pl", title, "gotówkowy", offer, amount, creditPeriod, phone, email, name);
             String answer = "yes";
             model.addAttribute("answer", answer);
 
@@ -273,7 +274,8 @@ public class HomeAgencyController {
 
     @PostMapping("/agencyContactFormMortgage")
     public String sendAgencyContactFormMortgage(@RequestParam Long bankId, @RequestParam String name,
-                                                @RequestParam String message, @RequestParam int amount,
+                                                @RequestParam String phone, @RequestParam String email,
+                                                @RequestParam int amount,
                                                 @RequestParam int creditPeriod, @RequestParam String offer,
                                                 @RequestParam int age, @RequestParam String chooseServiceCharge,
                                                 @RequestParam String chooseInsurance, @RequestParam BigDecimal contributionPercent,
@@ -296,7 +298,7 @@ public class HomeAgencyController {
         ReCaptchaResponse reCaptchaResponse = restTemplate.exchange(url+params, HttpMethod.POST, null, ReCaptchaResponse.class).getBody();
         assert reCaptchaResponse != null;
         if(reCaptchaResponse.isSuccess()) {
-            emailService.send("bank@wybankuj.pl", title, message);
+            emailService.send("bank@wybankuj.pl", title, "hipoteczny", offer, amount, creditPeriod, phone, email, name);
             String answer = "yes";
             model.addAttribute("answer", answer);
 
