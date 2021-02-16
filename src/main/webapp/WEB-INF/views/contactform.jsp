@@ -28,7 +28,7 @@
 <div class="container">
     <h3 class="h3-details">
         <img src="<c:url value="/img/${bank.get().logo}" />" alt="${bank.get().bankName}" class="img-h3"/>
-        <span class="span-h3"> - Formularz kontaktowy</span>
+        <span class="span-h3"> Formularz kontaktowy</span>
     </h3>
 
     <c:choose>

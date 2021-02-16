@@ -156,6 +156,7 @@ public class HomeAgencyController {
         model.addAttribute("userLoan", userLoan);
 
         model.addAttribute("offer", offer);
+        model.addAttribute("siteKey", envSiteKey.getSite());
 
         ReCaptchaResponse reCaptchaResponse = restTemplate.exchange(url+params, HttpMethod.POST, null, ReCaptchaResponse.class).getBody();
         if(reCaptchaResponse.isSuccess()) {
