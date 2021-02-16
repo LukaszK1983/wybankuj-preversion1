@@ -42,7 +42,7 @@ public class EmailService {
                             "<br /><br />" +
                             "<div style='color: #1C3752; font-size: 16px;'>" +
                             "Dzień dobry, <br /><br />" +
-                            "interesuje mnie kredyt " + credit + " o poniższych parametrach: <br /><br />" +
+                            "interesuje mnie kredyt <span style='color: #BF4042'>" + credit + "</span> o poniższych parametrach: <br /><br />" +
                             "1. oferta - <span style='color: #BF4042'>" + offer + "</span><br />" +
                             "2. kwota - <span style='color: #BF4042'>" + amount + "</span> zł <br />" +
                             "3. okres kredytowania - <span style='color: #BF4042'>" + creditPeriod + "</span> miesięcy <br /><br />" +

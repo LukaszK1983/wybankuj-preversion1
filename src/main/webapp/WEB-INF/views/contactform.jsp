@@ -128,7 +128,7 @@
                 </div>
             </div>
 
-            <div class="form-group">
+            <div class="form-group center">
             	<div class="col-md-12 g-recaptcha" data-sitekey="${siteKey}"></div>
             </div>
 

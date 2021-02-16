@@ -163,6 +163,7 @@ public class HomeAgencyController {
         assert reCaptchaResponse != null;
         if(reCaptchaResponse.isSuccess()) {
             emailService.send("bank@wybankuj.pl", title, "gotówkowy", offer, amount, creditPeriod, phone, email, name);
+            emailService.sendToUser(email, title, bankRepository.findById(bankId).get().getBankName());
             String answer = "yes";
             model.addAttribute("answer", answer);
 
@@ -299,6 +300,7 @@ public class HomeAgencyController {
         assert reCaptchaResponse != null;
         if(reCaptchaResponse.isSuccess()) {
             emailService.send("bank@wybankuj.pl", title, "hipoteczny", offer, amount, creditPeriod, phone, email, name);
+            emailService.sendToUser(email, title, bankRepository.findById(bankId).get().getBankName());
             String answer = "yes";
             model.addAttribute("answer", answer);
 
