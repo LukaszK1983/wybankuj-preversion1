@@ -8,6 +8,7 @@ import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.client.RestTemplate;
+import pl.wybankuj.bean.EnvSecretKey;
 import pl.wybankuj.entity.Agency;
 import pl.wybankuj.entity.Bank;
 import pl.wybankuj.entity.UserLoan;
@@ -17,7 +18,6 @@ import pl.wybankuj.repository.AgencyRepository;
 import pl.wybankuj.repository.BankRepository;
 import pl.wybankuj.service.EmailService;
 
-import javax.servlet.http.HttpServletRequest;
 import java.math.BigDecimal;
 import java.util.List;
 
@@ -27,14 +27,16 @@ public class HomeAgencyController {
     private final EmailService emailService;
     private final AgencyRepository agencyRepository;
     private final BankRepository bankRepository;
+    private final EnvSecretKey envSecretKey;
 
     @Autowired
     private RestTemplate restTemplate;
 
-    public HomeAgencyController(EmailService emailService, AgencyRepository agencyRepository, BankRepository bankRepository) {
+    public HomeAgencyController(EmailService emailService, AgencyRepository agencyRepository, BankRepository bankRepository, EnvSecretKey envSecretKey) {
         this.emailService = emailService;
         this.agencyRepository = agencyRepository;
         this.bankRepository = bankRepository;
+        this.envSecretKey = envSecretKey;
     }
 
     @GetMapping("/listOfAgencies")
@@ -139,7 +141,7 @@ public class HomeAgencyController {
                                         @RequestParam(name="g-recaptcha-response") String captchaResponse) {
 
         String url = "https://www.google.com/recaptcha/api/siteverify";
-        String params = "?secret=6LeFXVkaAAAAACOJu0XM35wt5CLsWw8tq2maO4E3&response=" + captchaResponse;
+        String params = "?secret=" + envSecretKey.getSecret() + "&response=" + captchaResponse;
 
         String title = "Wiadomość z Wybankuj.pl - " + name;
 
