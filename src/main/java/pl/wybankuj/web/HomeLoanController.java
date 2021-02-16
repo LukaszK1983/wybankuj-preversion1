@@ -26,12 +26,10 @@ public class HomeLoanController {
 
     private final LoanRepository loanRepository;
     private final LoanService loanService;
-    private final EnvSiteKey envSiteKey;
 
-    public HomeLoanController(LoanRepository loanRepository, LoanService loanService, EnvSiteKey envSiteKey) {
+    public HomeLoanController(LoanRepository loanRepository, LoanService loanService) {
         this.loanRepository = loanRepository;
         this.loanService = loanService;
-        this.envSiteKey = envSiteKey;
     }
 
     @GetMapping("/loanParameters")
@@ -80,7 +78,6 @@ public class HomeLoanController {
             model.addAttribute("calculations3", calculations3);
         }
         model.addAttribute("userLoan", userLoan);
-        model.addAttribute("siteKey", envSiteKey.getSite());
 
         return "loandetails";
     }

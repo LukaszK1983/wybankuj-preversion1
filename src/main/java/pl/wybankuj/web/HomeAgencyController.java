@@ -9,6 +9,7 @@ import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.client.RestTemplate;
 import pl.wybankuj.bean.EnvSecretKey;
+import pl.wybankuj.bean.EnvSiteKey;
 import pl.wybankuj.entity.Agency;
 import pl.wybankuj.entity.Bank;
 import pl.wybankuj.entity.UserLoan;
@@ -28,15 +29,17 @@ public class HomeAgencyController {
     private final AgencyRepository agencyRepository;
     private final BankRepository bankRepository;
     private final EnvSecretKey envSecretKey;
+    private final EnvSiteKey envSiteKey;
 
     @Autowired
     private RestTemplate restTemplate;
 
-    public HomeAgencyController(EmailService emailService, AgencyRepository agencyRepository, BankRepository bankRepository, EnvSecretKey envSecretKey) {
+    public HomeAgencyController(EmailService emailService, AgencyRepository agencyRepository, BankRepository bankRepository, EnvSecretKey envSecretKey, EnvSiteKey envSiteKey) {
         this.emailService = emailService;
         this.agencyRepository = agencyRepository;
         this.bankRepository = bankRepository;
         this.envSecretKey = envSecretKey;
+        this.envSiteKey = envSiteKey;
     }
 
     @GetMapping("/listOfAgencies")
@@ -128,6 +131,8 @@ public class HomeAgencyController {
 
         UserLoan userLoan = new UserLoan(amount, creditPeriod, age, chooseServiceCharge, chooseInsurance);
         model.addAttribute("userLoan", userLoan);
+
+        model.addAttribute("siteKey", envSiteKey.getSite());
 
         return "contactform";
 }
