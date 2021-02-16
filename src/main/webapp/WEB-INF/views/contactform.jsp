@@ -35,7 +35,7 @@
         <c:when test="${empty answer}">
         </c:when>
         <c:when test="${answer == 'no'}">
-            <h4 class="h4-send-msg">Proszę zaznaczyć pole <b>Nie jestem robotem</b></h4>
+            <h4 class="h3-details">Proszę zaznaczyć pole <b>Nie jestem robotem</b></h4>
         </c:when>
         <c:otherwise>
             <h4 class="h4-send-msg">Wiadomość została wysłana. Dziękujemy za kontakt.</h4>
