@@ -93,7 +93,7 @@
             </div>
 
             <div class="form-group">
-            	<div class="col-md-12 g-recaptcha" data-sitekey="6LeFXVkaAAAAAGLcOtiiYj8I-oHtJsUa9pddFjQm"></div>
+            	<div class="col-md-12 g-recaptcha" data-sitekey="${siteKey}"></div>
             </div>
 
             <div class="form-group" style="text-align: center">

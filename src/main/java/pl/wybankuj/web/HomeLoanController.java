@@ -6,6 +6,7 @@ import org.apache.logging.log4j.Logger;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.*;
+import pl.wybankuj.bean.EnvSiteKey;
 import pl.wybankuj.entity.Calculations;
 import pl.wybankuj.entity.Loan;
 import pl.wybankuj.entity.UserLoan;
@@ -25,10 +26,12 @@ public class HomeLoanController {
 
     private final LoanRepository loanRepository;
     private final LoanService loanService;
+    private final EnvSiteKey envSiteKey;
 
-    public HomeLoanController(LoanRepository loanRepository, LoanService loanService) {
+    public HomeLoanController(LoanRepository loanRepository, LoanService loanService, EnvSiteKey envSiteKey) {
         this.loanRepository = loanRepository;
         this.loanService = loanService;
+        this.envSiteKey = envSiteKey;
     }
 
     @GetMapping("/loanParameters")
@@ -77,6 +80,7 @@ public class HomeLoanController {
             model.addAttribute("calculations3", calculations3);
         }
         model.addAttribute("userLoan", userLoan);
+        model.addAttribute("siteKey", envSiteKey.getSite());
 
         return "loandetails";
     }
