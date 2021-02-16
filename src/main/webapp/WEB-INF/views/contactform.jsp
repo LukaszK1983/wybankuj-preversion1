@@ -77,22 +77,22 @@
             </div>
             <div class="form-group">
                 <label class="labelTitle">
-                    Interesuje mnie oferta <span className="spanColor">${offer}</span> o
+                    Interesuje mnie oferta <span class="spanColor">${offer}</span> o
                     parametrach:
                 </label>
                 <div class="formControlInfoSend">
                     <p>
-                        Kwota kredytu: <span className="spanColor">${userLoan.amount}</span>
+                        Kwota kredytu: <span class="spanColor">${userLoan.amount} zł</span>
                     </p>
                 </div>
                 <div class="formControlInfoSend">
                     <p>
-                        Okres kredytowania: <span className="spanColor">${userLoan.creditPeriod}</span>
+                        Okres kredytowania: <span class="spanColor">${userLoan.creditPeriod} mies.</span>
                     </p>
                 </div>
                 <div class="formControlInfoSend">
                     <p>
-                        Prowizja przygotowawcza: <span className="spanColor">
+                        Prowizja przygotowawcza: <span class="spanColor">
                         <c:choose>
                             <c:when test="${userLoan.chooseServiceCharge == 'yes'}">
                                 TAK
@@ -106,7 +106,7 @@
                 </div>
                 <div class="formControlInfoSend">
                     <p>
-                        Ubezpieczenie: <span className="spanColor">
+                        Ubezpieczenie: <span class="spanColor">
                         <c:choose>
                             <c:when test="${userLoan.chooseInsurance == 'yes'}">
                                 TAK
