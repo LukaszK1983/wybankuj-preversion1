@@ -216,25 +216,22 @@
                     </form>
                 </td>
                 <td>
-                    <a href="${pageContext.request.contextPath}/listOfAgenciesMortgage?bankId=${calculations1.mortgage.bank.id}&offer=${calculations1.mortgage.offer}&cost=${userMortgage.cost}&amount=${userMortgage.amount}&creditPeriod=${userMortgage.creditPeriod}
-&age=${userMortgage.age}&contributionPercent=${userMortgage.contributionPercent}&chooseServiceCharge=${userMortgage.chooseServiceCharge}&chooseInsurance=${userMortgage.chooseInsurance}"
-                       class="btn btn-sm btn-outline-success rounded">Wybierz oddział do kontaktu</a>
+                    <a href="${pageContext.request.contextPath}/agencyContactFormMortgage?bankId=${calculations1.mortgage.bank.id}&offer=${calculations1.mortgage.offer}&cost=${userMortgage.cost}&amount=${userMortgage.amount}&creditPeriod=${userMortgage.creditPeriod}&age=${userMortgage.age}&contributionPercent=${userMortgage.contributionPercent}&chooseServiceCharge=${userMortgage.chooseServiceCharge}&chooseInsurance=${userMortgage.chooseInsurance}"
+                       class="btn btn-sm btn-outline-success rounded">Formularz kontaktowy</a>
                 </td>
                 <c:choose>
                     <c:when test="${testMortgage2}">
                         <td>
-                            <a href="${pageContext.request.contextPath}/listOfAgenciesMortgage?bankId=${calculations2.mortgage.bank.id}&offer=${calculations2.mortgage.offer}&cost=${userMortgage.cost}&amount=${userMortgage.amount}&creditPeriod=${userMortgage.creditPeriod}
-&age=${userMortgage.age}&contributionPercent=${userMortgage.contributionPercent}&chooseServiceCharge=${userMortgage.chooseServiceCharge}&chooseInsurance=${userMortgage.chooseInsurance}"
-                               class="btn btn-sm btn-outline-success rounded">Wybierz oddział do kontaktu</a>
+                            <a href="${pageContext.request.contextPath}/agencyContactFormMortgage?bankId=${calculations2.mortgage.bank.id}&offer=${calculations2.mortgage.offer}&cost=${userMortgage.cost}&amount=${userMortgage.amount}&creditPeriod=${userMortgage.creditPeriod}&age=${userMortgage.age}&contributionPercent=${userMortgage.contributionPercent}&chooseServiceCharge=${userMortgage.chooseServiceCharge}&chooseInsurance=${userMortgage.chooseInsurance}"
+                               class="btn btn-sm btn-outline-success rounded">Formularz kontaktowy</a>
                         </td>
                     </c:when>
                 </c:choose>
                 <c:choose>
                     <c:when test="${testMortgage3}">
                         <td>
-                            <a href="${pageContext.request.contextPath}/listOfAgenciesMortgage?bankId=${calculations3.mortgage.bank.id}&offer=${calculations3.mortgage.offer}&cost=${userMortgage.cost}&amount=${userMortgage.amount}&creditPeriod=${userMortgage.creditPeriod}
-&age=${userMortgage.age}&contributionPercent=${userMortgage.contributionPercent}&chooseServiceCharge=${userMortgage.chooseServiceCharge}&chooseInsurance=${userMortgage.chooseInsurance}"
-                               class="btn btn-sm btn-outline-success rounded">Wybierz oddział do kontaktu</a>
+                            <a href="${pageContext.request.contextPath}/agencyContactFormMortgage?bankId=${calculations3.mortgage.bank.id}&offer=${calculations3.mortgage.offer}&cost=${userMortgage.cost}&amount=${userMortgage.amount}&creditPeriod=${userMortgage.creditPeriod}&age=${userMortgage.age}&contributionPercent=${userMortgage.contributionPercent}&chooseServiceCharge=${userMortgage.chooseServiceCharge}&chooseInsurance=${userMortgage.chooseInsurance}"
+                               class="btn btn-sm btn-outline-success rounded">Formularz kontaktowy</a>
                         </td>
                     </c:when>
                 </c:choose>

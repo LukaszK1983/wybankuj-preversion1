@@ -159,18 +159,18 @@ public class HomeAgencyController {
         model.addAttribute("siteKey", envSiteKey.getSite());
 
         ReCaptchaResponse reCaptchaResponse = restTemplate.exchange(url+params, HttpMethod.POST, null, ReCaptchaResponse.class).getBody();
+        assert reCaptchaResponse != null;
         if(reCaptchaResponse.isSuccess()) {
             emailService.send("bank@wybankuj.pl", title, message);
             String answer = "yes";
             model.addAttribute("answer", answer);
 
-            return "contactform";
         } else {
             String answer = "no";
             model.addAttribute("answer", answer);
 
-            return "contactform";
         }
+        return "contactform";
     }
 
     @GetMapping("/listOfAgenciesMortgage")
@@ -215,14 +215,54 @@ public class HomeAgencyController {
         return "listofagenciesmortgage";
     }
 
+//    @GetMapping("/agencyContactFormMortgage")
+//    public String agencyContactFormMortgage(@RequestParam Long agencyId, @RequestParam int amount,
+//                                    @RequestParam int creditPeriod, @RequestParam String offer,
+//                                    @RequestParam BigDecimal contributionPercent, @RequestParam int age,
+//                                            @RequestParam String chooseServiceCharge, @RequestParam int cost,
+//                                    @RequestParam String chooseInsurance, Model model) {
+//
+//        model.addAttribute("agency", agencyRepository.findById(agencyId));
+//        model.addAttribute("offer", offer);
+//
+//        UserMortgage userMortgage = new UserMortgage(cost, amount, creditPeriod, age, contributionPercent, chooseServiceCharge, chooseInsurance);
+//        model.addAttribute("userMortgage", userMortgage);
+//
+//        return "contactformmortgage";
+//    }
+//
+//    @PostMapping("/agencyContactFormMortgage")
+//    public String sendAgencyContactFormMortgage(@RequestParam Long agencyId, @RequestParam String name,
+//                                        @RequestParam String message, @RequestParam int amount,
+//                                        @RequestParam int creditPeriod, @RequestParam String offer,
+//                                        @RequestParam int age, @RequestParam String chooseServiceCharge,
+//                                        @RequestParam String chooseInsurance, @RequestParam BigDecimal contributionPercent,
+//                                                @RequestParam int cost, Model model) {
+//
+//        String agencyMail = agencyRepository.findById(agencyId).get().getEmail();
+//        String title = "Wiadomość z Wybankuj.pl - " + name;
+//        emailService.send(agencyMail, title, message);
+//        String answear = "yes";
+//
+//        model.addAttribute("agency", agencyRepository.findById(agencyId));
+//
+//        UserMortgage userMortgage = new UserMortgage(cost, amount, creditPeriod, age, contributionPercent, chooseServiceCharge, chooseInsurance);
+//        model.addAttribute("userMortgage", userMortgage);
+//
+//        model.addAttribute("offer", offer);
+//        model.addAttribute("answear", answear);
+//
+//        return "contactformmortgage";
+//    }
     @GetMapping("/agencyContactFormMortgage")
-    public String agencyContactFormMortgage(@RequestParam Long agencyId, @RequestParam int amount,
-                                    @RequestParam int creditPeriod, @RequestParam String offer,
-                                    @RequestParam BigDecimal contributionPercent, @RequestParam int age,
-                                            @RequestParam String chooseServiceCharge, @RequestParam int cost,
-                                    @RequestParam String chooseInsurance, Model model) {
+    public String agencyContactFormMortgage(@RequestParam Long bankId, @RequestParam int amount,
+                                        @RequestParam int creditPeriod, @RequestParam String offer,
+                                        @RequestParam BigDecimal contributionPercent, @RequestParam int age,
+                                        @RequestParam String chooseServiceCharge, @RequestParam int cost,
+                                        @RequestParam String chooseInsurance, Model model) {
 
-        model.addAttribute("agency", agencyRepository.findById(agencyId));
+        model.addAttribute("bank", bankRepository.findById(bankId));
+        model.addAttribute("siteKey", envSiteKey.getSite());
         model.addAttribute("offer", offer);
 
         UserMortgage userMortgage = new UserMortgage(cost, amount, creditPeriod, age, contributionPercent, chooseServiceCharge, chooseInsurance);
@@ -232,26 +272,39 @@ public class HomeAgencyController {
     }
 
     @PostMapping("/agencyContactFormMortgage")
-    public String sendAgencyContactFormMortgage(@RequestParam Long agencyId, @RequestParam String name,
-                                        @RequestParam String message, @RequestParam int amount,
-                                        @RequestParam int creditPeriod, @RequestParam String offer,
-                                        @RequestParam int age, @RequestParam String chooseServiceCharge,
-                                        @RequestParam String chooseInsurance, @RequestParam BigDecimal contributionPercent,
-                                                @RequestParam int cost, Model model) {
+    public String sendAgencyContactFormMortgage(@RequestParam Long bankId, @RequestParam String name,
+                                                @RequestParam String message, @RequestParam int amount,
+                                                @RequestParam int creditPeriod, @RequestParam String offer,
+                                                @RequestParam int age, @RequestParam String chooseServiceCharge,
+                                                @RequestParam String chooseInsurance, @RequestParam BigDecimal contributionPercent,
+                                                @RequestParam int cost, Model model,
+                                                @RequestParam(name="g-recaptcha-response") String captchaResponse) {
 
-        String agencyMail = agencyRepository.findById(agencyId).get().getEmail();
+        String url = "https://www.google.com/recaptcha/api/siteverify";
+        String params = "?secret=" + envSecretKey.getSecret() + "&response=" + captchaResponse;
+
         String title = "Wiadomość z Wybankuj.pl - " + name;
-        emailService.send(agencyMail, title, message);
-        String answear = "yes";
 
-        model.addAttribute("agency", agencyRepository.findById(agencyId));
+        model.addAttribute("bank", bankRepository.findById(bankId));
 
         UserMortgage userMortgage = new UserMortgage(cost, amount, creditPeriod, age, contributionPercent, chooseServiceCharge, chooseInsurance);
         model.addAttribute("userMortgage", userMortgage);
 
         model.addAttribute("offer", offer);
-        model.addAttribute("answear", answear);
+        model.addAttribute("siteKey", envSiteKey.getSite());
 
+        ReCaptchaResponse reCaptchaResponse = restTemplate.exchange(url+params, HttpMethod.POST, null, ReCaptchaResponse.class).getBody();
+        assert reCaptchaResponse != null;
+        if(reCaptchaResponse.isSuccess()) {
+            emailService.send("bank@wybankuj.pl", title, message);
+            String answer = "yes";
+            model.addAttribute("answer", answer);
+
+        } else {
+            String answer = "no";
+            model.addAttribute("answer", answer);
+
+        }
         return "contactformmortgage";
     }
 }
