@@ -5,9 +5,9 @@
         const divLoan = $('#loan');
         const divMortgage = $('#mortgage');
 
-        divLoan.on('mouseover', function () {
+        divLoan.bind('mouseover', function () {
             divLoan.css('background-color', '#306991');
-            divLoan.on('mouseleave', function () {
+            divLoan.bind('mouseleave', function () {
                 divLoan.css('background-color', '#19364D');
             });
         });
