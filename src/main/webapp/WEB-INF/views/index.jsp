@@ -15,23 +15,12 @@
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
     <link href="https://fonts.googleapis.com/css?family=Lora:400i|Roboto+Condensed:400,700|Amatic+SC|Cormorant+Garamond:300,400|Roboto+Slab:700&amp;subset=latin-ext"
           rel="stylesheet">
-
-<%--    <script src="${pageContext.request.contextPath}/js/appindex.js"></script>--%>
-
-    <script type="text/javascript">
-        function scrollToTop(selector) {
-            $('html,body').animate({scrollTop: $(selector).offset().top}, 1000);
-            return false;
-        }
-    </script>
+    <script src="${pageContext.request.contextPath}/js/appindex.js"></script>
 </head>
 <body>
 <div id="fb-root"></div>
-<script async defer crossorigin="anonymous"
-        src="https://connect.facebook.net/pl_PL/sdk.js#xfbml=1&version=v6.0"></script>
-<%--<div class="jumbotron jumbotron-fluid text-center border-bottom" style="background-color: #3D78B8; color: #FFFFFF">--%>
-<%--    <h2>Wybankuj.pl - wszystkie kredyty w jednym miejscu</h2>--%>
-<%--<div class="text-left border-bottom">--%>
+<script async defer crossorigin="anonymous" src="https://connect.facebook.net/pl_PL/sdk.js#xfbml=1&version=v6.0"></script>
+
 <div class="div-header">
     <%@ include file="/WEB-INF/JSPF/mainheader.jspf" %>
 </div>
@@ -62,65 +51,69 @@
 
 </div>
 
-<div class="div-details">
-    <h3 class="h3-details">Wybankuj, a zyskasz:</h3>
-    <div class="div-details-ul centered">
+<div class="divFade" onMouseOver="divFadeWider" onMouseLeave="divFade">
+    <h3 class="h3Details">Wybankuj, a zyskasz:</h3>
+    <div class="divDetailsUl">
         <ul>
-            <li>Bezpłatne porównanie ofert kredytowych dostępnych na rynku</li>
+            <li class="liStyle">Bezpłatne porównanie ofert kredytowych dostępnych na rynku</li>
             <br/>
-            <li>Wszystkie banki w jednym miejscu</li>
+            <li class="liStyle">Wszystkie banki w jednym miejscu</li>
             <br/>
-            <li>Brak nachalnych telefonów! Ty wybierasz bank i sam się z nim kontaktujesz</li>
+            <li class="liStyle">Brak nachalnych telefonów! Ty wybierasz bank i sam się z nim kontaktujesz</li>
             <br/>
-            <li>Brak pośredników wybierających za Ciebie - to Ty tu rządzisz</li>
+            <li class="liStyle">Brak pośredników wybierających za Ciebie - to Ty tu rządzisz</li>
             <br/>
-            <li>Brak magazynowania Twoich danych osobowych w celach marketingowych</li>
-            <br/>
-            <li>Komfort, wygoda, spokój</li>
+            <li class="liStyle">Komfort, wygoda, spokój</li>
         </ul>
     </div>
-    <h4 class="h3-details">Sprawdź, jakie to proste!</h4>
+    <h4 class="h3Details">Sprawdź, jakie to proste!</h4>
 </div>
 
-<div class="div-image-footer">
-    <img src="${pageContext.request.contextPath}/img/slider_kredyty.jpg" alt="" class="image-footer"/>
-</div>
-
-<section id="about">
-    <div class="div-details2">
-        <h3 class="h3-details">O nas</h3>
-        <div class="div-details-ul centered">
-            <p>Kilkunastoletnie doświadczenie na rynku finansowym zdobyte w różnych podmiotach - banki, pośrednictwa kredytowe, agencje ubezpieczoniowe - zaowocowało stworzeniem uniwersalnego narzędzia dla każdego klienta. Od teraz to Klient decyduje, którą ofertę wybrać ze wszystkich dostępnych na rynku. Brak ukrytych kosztów, wszystko przedstawione transparentnie zgodnie z Twoimi oczekiwaniami.</p>
-            <p>Nadal masz wątpliwości? Sprawdź liczby obrazujące nasze dokonania:</p>
-            <ul>
-                <li>Łączna kwota sprzedanych kredytów gotówkowych - <span class="span-details">76.907.218,63 zł</span></li>
-                <br/>
-                <li>Łączna kwota sprzedanych kredytów hipotecznych - <span class="span-details">59.117.699,66 zł</span></li>
-                <br/>
-                <li>Kilkuset zadowolonych klientów polecających nasze usługi</li>
-            </ul>
-        </div>
+<div class="divImageHome">
+    <div class="divInnerImage">
+        <p class=pInnerImage}>
+           Kilkunastoletnie doświadczenie na rynku finansowym zdobyte w różnych podmiotach - banki,
+           pośrednictwa kredytowe, agencje ubezpieczeniowe - zaowocowało stworzeniem uniwersalnego
+           narzędzia dla każdego klienta. Od teraz to Klient decyduje, którą ofertę wybrać ze
+           wszystkich
+           dostępnych na rynku. Brak ukrytych kosztów, wszystko przedstawione transparentnie i zgodnie z
+           Twoimi oczekiwaniami.
+        </p>
     </div>
-</section>
-
-<div class="div-image-footer">
-    <img src="${pageContext.request.contextPath}/img/slider_ubezpieczenia.jpg" alt="" class="image-footer"/>
 </div>
 
-<section id="contact">
-    <div class="div-details2">
-        <h3 class="h3-details">Kontakt</h3>
-        <div class="div-details-ul centered">
-            <p>Masz pytanie lub sugestię? Potrzebujesz pomocy w przygotowaniu symulacji?</p>
-            <p>Napisz do nas lub zadzwoń - chętnie pomożemy i odpowiemy na każde pytanie.</p>
-            <ul>
-                <li>Telefon - <span class="span-details">+48 796 37 33 00</span></li>
-                <br/>
-                <li>E-mail - <a href="mailto:biuro@bbee.pl" class="span-details">biuro@bbee.pl</a></li>
-            </ul>
-        </div>
+<div class="divPointsAboutUs">
+    <div class="divAboutUsLeft">
+        <p class="pAboutUsTitle">
+            Sprzedane kredyty gotówkowe
+        </p>
+        <p class="pAboutUsValue">
+            77 mln zł
+        </p>
     </div>
-</section>
+    <div class="divAboutUsCenter">
+        <p class="pAboutUsTitle">
+            Sprzedane kredyty hipoteczne
+        </p>
+        <p class="pAboutUsValue">
+            64 mln zł
+        </p>
+    </div>
+    <div class="divAboutUsRight">
+        <p class="pAboutUsTitle">
+            Doświadczenie w branży finansowej
+        </p>
+        <p class="pAboutUsValue">
+            14 lat
+        </p>
+    </div>
+</div>
+
+<div class="divImageHome2">
+    <p class="pHappyCustomers">
+        Dołącz do grona zadowolonych klientów
+    </p>
+</div>
 
     <div class="div-footer">
         <%@ include file="/WEB-INF/JSPF/footer.jspf" %>

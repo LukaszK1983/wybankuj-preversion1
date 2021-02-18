@@ -1333,6 +1333,166 @@ footer {
     transition: border-color .15s ease-in-out,box-shadow .15s ease-in-out;
 }
 
+.divFade {
+    width: 70%;
+    margin: auto;
+    margin-top: 20%;
+    margin-bottom: 2%;
+    background-color: #FFFFFF;
+    transition: width 1s;
+    padding: 2%;
+}
+
+.divFadeWider {
+    width: 80%;
+    margin: auto;
+    margin-top: 20%;
+    margin-bottom: 2%;
+    background-color: #FFFFFF;
+    box-shadow: 0px 4px 2px -2px #BF4042;
+    transition: width 1s;
+    padding: 2%
+}
+
+.h3Details {
+    text-align: center;
+    font-weight: bold;
+    color: #BF4042;
+    margin-top: 2%;
+    margin-bottom: 2%;
+}
+
+.divDetailsUl {
+    width: 70%;
+    margin-left: auto;
+    margin-right: auto;
+    margin-bottom: 2%;
+    color: #1C3752;
+    text-align: left;
+}
+
+.liStyle {
+    list-style-type: none;
+    font-weight: bold;
+}
+
+.divImageHome {
+    width: 80vmax;
+    margin-left: auto;
+    margin-right: auto;
+    margin-bottom: 2%;
+    background: url('../img/slider_image_4.jpg') no-repeat center center;
+    background-size: 100% 100%;
+    padding: 5%;
+}
+
+.divInnerImage {
+    width: 70%;
+    margin-top: 0;
+    margin-right: 0;
+    margin-left: 30%;
+    background-color: #fff;
+    border: 1px solid #BF4042;
+    box-shadow: 0px 4px 2px -2px #1C3752;
+    opacity: 80%;
+}
+
+.pInnerImage {
+    color: #BF4042;
+    font-weight: bolder;
+    text-align: justify;
+    margin: 5%;
+}
+
+.divPointsAboutUs {
+    position: relative;
+    padding-top: 5%;
+    padding-bottom: 33%;
+    width: 90%;
+    margin-top: 20%;
+    margin-bottom: 20%;
+    margin: auto;
+}
+
+.divAboutUsLeft {
+    width: 25%;
+    float: left;
+    margin-left: 0;
+    background-color: #fff;
+    color: #1C3752;
+    text-align: center;
+    padding: 5%;
+    -webkit-box-shadow: 2px 5px 16px 0px #1C3752, 5px 5px 15px 5px rgba(0,0,0,0);
+    box-shadow: 2px 5px 16px 0px #1C3752, 5px 5px 15px 5px rgba(0,0,0,0);
+    border: 1px solid #1C3752;
+    transition: 3s;
+    opacity: 100%;
+}
+
+.divAboutUsCenter {
+    width: 25%;
+    float: left;
+    margin-left: 12%;
+    padding: 0 10%;
+    background-color: #fff;
+    color: #1C3752;
+    text-align: center;
+    padding: 5%;
+    -webkit-box-shadow: 2px 5px 16px 0px #1C3752, 5px 5px 15px 5px rgba(0,0,0,0);
+    box-shadow: 2px 5px 16px 0px #1C3752, 5px 5px 15px 5px rgba(0,0,0,0);
+    border: 1px solid #1C3752;
+    transition: 3s;
+    opacity: 100%;
+}
+
+.divAboutUsRight {
+    width: 25%;
+    float: right;
+    padding: 0 10%;
+    background-color: #fff;
+    color: #1C3752;
+    text-align: center;
+    padding: 5%;
+    -webkit-box-shadow: 2px 5px 16px 0px #1C3752, 5px 5px 15px 5px rgba(0,0,0,0);
+    box-shadow: 2px 5px 16px 0px #1C3752, 5px 5px 15px 5px rgba(0,0,0,0);
+    border: 1px solid #1C3752;
+    transition: 9s;
+    opacity: 100%;
+}
+
+.pAboutUsTitle {
+    color: #1C3752;
+    font-size: 1.5em;
+}
+
+.pAboutUsValue {
+    color: #BF4042;
+    font-size: 2.5em;
+    font-weight: bolder;
+}
+
+.divImageHome2 {
+    width: 80vmax;
+    margin-left: auto;
+    margin-right: auto;
+    margin-bottom: 2%;
+    background: url('../img/slider_ubezpieczenia.jpg') no-repeat center center;
+    background-size: 100% 100%;
+    padding: 5%;
+}
+
+.pHappyCustomers {
+    color: #1C3752;
+    font-weight: bolder;
+    font-size: 3em;
+    text-decoration: underline #BF4042;
+    text-align: center;
+    width: 100%;
+    margin: auto;
+    margin-top: 20%;
+    margin-bottom: -5%;
+}
+
 .checkbox1 {
 }
 
