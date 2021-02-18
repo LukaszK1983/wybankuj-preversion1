@@ -51,7 +51,7 @@
 
 </div>
 
-<div class="divFade" onMouseOver="divFadeWider" onMouseLeave="divFade">
+<div class="divFadeWider">
     <h3 class="h3Details">Wybankuj, a zyskasz:</h3>
     <div class="divDetailsUl">
         <ul>
