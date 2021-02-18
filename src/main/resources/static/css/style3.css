@@ -51,6 +51,10 @@ footer {
     margin:0 auto;
 }
 
+.divMain {
+    background-color: #F5F5F5;
+}
+
 @media (min-width: 1100px) {
 
     .container {

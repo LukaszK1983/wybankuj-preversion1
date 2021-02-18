@@ -18,6 +18,8 @@
     <script src="${pageContext.request.contextPath}/js/appindex.js"></script>
 </head>
 <body>
+<div class="divMain">
+
 <div id="fb-root"></div>
 <script async defer crossorigin="anonymous" src="https://connect.facebook.net/pl_PL/sdk.js#xfbml=1&version=v6.0"></script>
 
@@ -113,6 +115,8 @@
     <p class="pHappyCustomers">
         Dołącz do grona zadowolonych klientów
     </p>
+</div>
+
 </div>
 
     <div class="div-footer">
