@@ -71,7 +71,7 @@
 
 <div class="divImageHome">
     <div class="divInnerImage">
-        <p class=pInnerImage}>
+        <p class="pInnerImage">
            Kilkunastoletnie doświadczenie na rynku finansowym zdobyte w różnych podmiotach - banki,
            pośrednictwa kredytowe, agencje ubezpieczeniowe - zaowocowało stworzeniem uniwersalnego
            narzędzia dla każdego klienta. Od teraz to Klient decyduje, którą ofertę wybrać ze
