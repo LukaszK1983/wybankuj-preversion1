@@ -1,6 +1,4 @@
 INSERT INTO banks (bank_name, logo) VALUES ('PKO BP', 'logopko.jpg');
-INSERT INTO loans (credit_rate, insurance, max_borrower_age, max_credit_amount, max_credit_period, min_borrower_age, min_credit_amount, offer, service_charge, bank_id) VALUES (8.58, 2.0, 70, 100000, 120, 18, 5000, 'Zima', 2.50, 1);
-INSERT INTO loans (credit_rate, insurance, max_borrower_age, max_credit_amount, max_credit_period, min_borrower_age, min_credit_amount, offer, service_charge, bank_id) VALUES (9.79, 0.0, 70, 100000, 120, 18, 5000, 'Tania Zima', 0.0, 1);
 INSERT INTO mortgages (contribution_percent, credit_rate, insurance, max_borrower_age, max_credit_amount, max_credit_period, min_borrower_age, min_credit_amount, offer, service_charge, bank_id) VALUES (10.0, 4.08, 2.0, 75, 2000000, 360, 18, 10000, 'Zimowa', 0.50, 1);
 INSERT INTO mortgages (contribution_percent, credit_rate, insurance, max_borrower_age, max_credit_amount, max_credit_period, min_borrower_age, min_credit_amount, offer, service_charge, bank_id) VALUES (10.0, 3.58, 0.0, 75, 2000000, 360, 18, 10000, 'Twój Dom', 0.0, 1);
 
@@ -11,10 +9,6 @@ INSERT INTO mortgages (contribution_percent, credit_rate, insurance, max_borrowe
 INSERT INTO mortgages (contribution_percent, credit_rate, insurance, max_borrower_age, max_credit_amount, max_credit_period, min_borrower_age, min_credit_amount, offer, service_charge, bank_id) VALUES (10.0, 4.49, 0.0, 70, 2000000, 360, 18, 10000, 'Hipo2', 0.0, 2);
 
 INSERT INTO banks (bank_name, logo) VALUES ('Millennium', 'logomillennium.jpg');
-INSERT INTO loans (credit_rate, insurance, max_borrower_age, max_credit_amount, max_credit_period, min_borrower_age, min_credit_amount, offer, service_charge, bank_id) VALUES (7.58, 0.0, 75, 150000, 96, 18, 10000, 'Najlepsza', 6.50, 3);
-INSERT INTO loans (credit_rate, insurance, max_borrower_age, max_credit_amount, max_credit_period, min_borrower_age, min_credit_amount, offer, service_charge, bank_id) VALUES (9.39, 1.0, 75, 150000, 96, 18, 10000, 'Niedroga', 1.50, 3);
-INSERT INTO mortgages (contribution_percent, credit_rate, insurance, max_borrower_age, max_credit_amount, max_credit_period, min_borrower_age, min_credit_amount, offer, service_charge, bank_id) VALUES (10.0, 3.58, 0.0, 80, 2000000, 360, 18, 50000, 'Zimowa', 0.50, 3);
-INSERT INTO mortgages (contribution_percent, credit_rate, insurance, max_borrower_age, max_credit_amount, max_credit_period, min_borrower_age, min_credit_amount, offer, service_charge, bank_id) VALUES (10.0, 4.09, 0.0, 80, 2000000, 360, 18, 50000, 'Zaraz wiosenna', 0.00, 3);
 
 INSERT INTO banks (bank_name, logo) VALUES ('mBank', 'logombank.jpg');
 INSERT INTO loans (credit_rate, insurance, max_borrower_age, max_credit_amount, max_credit_period, min_borrower_age, min_credit_amount, offer, service_charge, bank_id) VALUES (9.68, 1.0, 70, 150000, 84, 18, 10000, 'Jedyna', 5.50, 4);
@@ -35,10 +29,6 @@ INSERT INTO mortgages (contribution_percent, credit_rate, insurance, max_borrowe
 INSERT INTO mortgages (contribution_percent, credit_rate, insurance, max_borrower_age, max_credit_amount, max_credit_period, min_borrower_age, min_credit_amount, offer, service_charge, bank_id) VALUES (10.0, 4.91, 0.0, 80, 1000000, 360, 18, 25000, 'Piekielna', 0.0, 6);
 
 INSERT INTO banks (bank_name, logo) VALUES ('BOŚ', 'logobos.jpg');
-INSERT INTO loans (credit_rate, insurance, max_borrower_age, max_credit_amount, max_credit_period, min_borrower_age, min_credit_amount, offer, service_charge, bank_id) VALUES (9.79, 0.50, 75, 150000, 96, 18, 5000, 'Przepyszna', 0.0, 7);
-INSERT INTO loans (credit_rate, insurance, max_borrower_age, max_credit_amount, max_credit_period, min_borrower_age, min_credit_amount, offer, service_charge, bank_id) VALUES (9.19, 0.50, 75, 150000, 96, 18, 5000, 'Przepyszniejsza', 1.0, 7);
-INSERT INTO mortgages (contribution_percent, credit_rate, insurance, max_borrower_age, max_credit_amount, max_credit_period, min_borrower_age, min_credit_amount, offer, service_charge, bank_id) VALUES (20.0, 3.51, 1.90, 80, 1000000, 360, 18, 15000, 'Chatka Puchatka', 2.25, 7);
-INSERT INTO mortgages (contribution_percent, credit_rate, insurance, max_borrower_age, max_credit_amount, max_credit_period, min_borrower_age, min_credit_amount, offer, service_charge, bank_id) VALUES (20.0, 4.51, 0.90, 80, 1000000, 360, 18, 15000, 'Chatka Prosiaczka', 0.25, 7);
 
 INSERT INTO banks (bank_name, logo) VALUES ('Alior', 'logoalior.jpg');
 INSERT INTO loans (credit_rate, insurance, max_borrower_age, max_credit_amount, max_credit_period, min_borrower_age, min_credit_amount, offer, service_charge, bank_id) VALUES (7.19, 0.0, 80, 200000, 144, 18, 500, 'Specjalna', 20.90, 8);
@@ -61,11 +51,7 @@ INSERT INTO loans (credit_rate, insurance, max_borrower_age, max_credit_amount, 
 INSERT INTO loans (credit_rate, insurance, max_borrower_age, max_credit_amount, max_credit_period, min_borrower_age, min_credit_amount, offer, service_charge, bank_id) VALUES (7.20, 0.0, 80, 100000, 120, 18, 10000, 'ZOR', 8.0, 10);
 INSERT INTO loans (credit_rate, insurance, max_borrower_age, max_credit_amount, max_credit_period, min_borrower_age, min_credit_amount, offer, service_charge, bank_id) VALUES (7.20, 0.0, 80, 100000, 120, 18, 300, 'Stałej Ceny', 12.0, 10);
 INSERT INTO loans (credit_rate, insurance, max_borrower_age, max_credit_amount, max_credit_period, min_borrower_age, min_credit_amount, offer, service_charge, bank_id) VALUES (7.20, 0.0, 80, 200000, 120, 18, 100000, 'Stałej Ceny', 12.0, 10);
-INSERT INTO mortgages (contribution_percent, credit_rate, insurance, max_borrower_age, max_credit_amount, max_credit_period, min_borrower_age, min_credit_amount, offer, service_charge, bank_id) VALUES (20.0, 4.19, 0.00, 80, 2000000, 360, 18, 10000, 'Pocztowa', 1.00, 10);
-INSERT INTO mortgages (contribution_percent, credit_rate, insurance, max_borrower_age, max_credit_amount, max_credit_period, min_borrower_age, min_credit_amount, offer, service_charge, bank_id) VALUES (20.0, 3.89, 2.00, 80, 2000000, 360, 18, 10000, 'Tania Pocztowa', 1.00, 10);
 
 INSERT INTO banks (bank_name, logo) VALUES ('Getin', 'logogetin.jpg');
 INSERT INTO loans (credit_rate, insurance, max_borrower_age, max_credit_amount, max_credit_period, min_borrower_age, min_credit_amount, offer, service_charge, bank_id) VALUES (9.39, 0.70, 75, 180000, 120, 18, 5000, 'Prawie Wiosna', 5.0, 11);
 INSERT INTO loans (credit_rate, insurance, max_borrower_age, max_credit_amount, max_credit_period, min_borrower_age, min_credit_amount, offer, service_charge, bank_id) VALUES (9.89, 0.70, 75, 180000, 120, 18, 5000, 'Wiosenna', 1.0, 11);
-INSERT INTO mortgages (contribution_percent, credit_rate, insurance, max_borrower_age, max_credit_amount, max_credit_period, min_borrower_age, min_credit_amount, offer, service_charge, bank_id) VALUES (10.0, 4.49, 1.00, 80, 3000000, 360, 18, 10000, 'Prezentowa', 0.00, 11);
-INSERT INTO mortgages (contribution_percent, credit_rate, insurance, max_borrower_age, max_credit_amount, max_credit_period, min_borrower_age, min_credit_amount, offer, service_charge, bank_id) VALUES (10.0, 4.01, 1.50, 80, 3000000, 360, 18, 10000, 'Wykwintna', 2.00, 11);
