@@ -33,6 +33,10 @@ public class Mortgage {
     private BigDecimal contributionPercent;
 
     @NotNull
+    @DecimalMin(value = "10.0")
+    private BigDecimal maxContributionPercent;
+
+    @NotNull
     @Min(value = 1)
     private Integer minCreditAmount;
 
@@ -50,6 +54,10 @@ public class Mortgage {
 
     @NotNull
     @Min(value = 1)
+    private Integer minCreditPeriod;
+
+    @NotNull
+    @Min(value = 1)
     private Integer maxCreditPeriod;
 
     @ManyToOne
@@ -60,9 +68,10 @@ public class Mortgage {
     public Mortgage() {
     }
 
-    public Mortgage(Long id, BigDecimal contributionPercent, BigDecimal creditRate, BigDecimal insurance, int maxBorrowerAge, int maxCreditAmount, int maxCreditPeriod, int minBorrowerAge, int minCreditAmount, String offer, BigDecimal serviceCharge, Bank bank) {
+    public Mortgage(Long id, BigDecimal contributionPercent, BigDecimal maxContributionPercent, BigDecimal creditRate, BigDecimal insurance, int maxBorrowerAge, int maxCreditAmount, int maxCreditPeriod, int minBorrowerAge, int minCreditAmount, int minCreditPeriod, String offer, BigDecimal serviceCharge, Bank bank) {
         this.id = id;
         this.contributionPercent = contributionPercent;
+        this.maxContributionPercent = maxContributionPercent;
         this.creditRate = creditRate;
         this.insurance = insurance;
         this.maxBorrowerAge = maxBorrowerAge;
@@ -70,6 +79,7 @@ public class Mortgage {
         this.maxCreditPeriod = maxCreditPeriod;
         this.minBorrowerAge = minBorrowerAge;
         this.minCreditAmount = minCreditAmount;
+        this.minCreditPeriod = minCreditPeriod;
         this.offer = offer;
         this.serviceCharge = serviceCharge;
         this.bank = bank;
@@ -169,5 +179,21 @@ public class Mortgage {
 
     public void setBank(Bank bank) {
         this.bank = bank;
+    }
+
+    public BigDecimal getMaxContributionPercent() {
+        return maxContributionPercent;
+    }
+
+    public void setMaxContributionPercent(BigDecimal maxContributionPercent) {
+        this.maxContributionPercent = maxContributionPercent;
+    }
+
+    public Integer getMinCreditPeriod() {
+        return minCreditPeriod;
+    }
+
+    public void setMinCreditPeriod(Integer minCreditPeriod) {
+        this.minCreditPeriod = minCreditPeriod;
     }
 }

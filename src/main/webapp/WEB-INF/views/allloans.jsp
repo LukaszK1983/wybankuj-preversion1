@@ -28,6 +28,7 @@
             <th>Max kwota</th>
             <th>Min wiek</th>
             <th>Max wiek</th>
+            <th>Min okres</th>
             <th>Max okres</th>
             <th style="text-align: center">Akcje</th>
             <th></th>
@@ -43,6 +44,7 @@
                 <td>${loan.maxCreditAmount} zł</td>
                 <td>${loan.minBorrowerAge}</td>
                 <td>${loan.maxBorrowerAge}</td>
+                <td>${loan.minCreditPeriod} mies.</td>
                 <td>${loan.maxCreditPeriod} mies.</td>
                 <td><a href="${pageContext.request.contextPath}/loan/edit?id=${loan.id}&bankId=${loan.bank.id}" class="btn btn-sm btn-outline-primary rounded">Edycja</a>
                     <a href="${pageContext.request.contextPath}/loan/delete?id=${loan.id}&bankId=${loan.bank.id}" class="btn btn-sm btn-outline-danger rounded" id="remove">Usuń</a></td>
@@ -50,7 +52,7 @@
             </tr>
         </c:forEach>
         <tr>
-            <td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td>
+            <td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td>
             <td><a href="${pageContext.request.contextPath}/loan/add?bankId=${bank.get().id}" class="btn btn-sm btn-outline-success rounded">Dodaj nową ofertę</a></td>
             <td></td>
         </tr>

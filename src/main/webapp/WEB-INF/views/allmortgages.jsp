@@ -25,10 +25,12 @@
             <th>Prowizja</th>
             <th>Ubezpieczenie</th>
             <th>Min wkład własny</th>
+            <th>Max wkład własny</th>
             <th>Min kwota</th>
             <th>Max kwota</th>
             <th>Min wiek</th>
             <th>Max wiek</th>
+            <th>Min okres</th>
             <th>Max okres</th>
             <th style="text-align: center">Akcje</th>
             <th></th>
@@ -41,10 +43,12 @@
                 <td>${mortgage.serviceCharge}%</td>
                 <td>${mortgage.insurance}%</td>
                 <td>${mortgage.contributionPercent}%</td>
+                <td>${mortgage.maxContributionPercent}%</td>
                 <td>${mortgage.minCreditAmount} zł</td>
                 <td>${mortgage.maxCreditAmount} zł</td>
                 <td>${mortgage.minBorrowerAge}</td>
                 <td>${mortgage.maxBorrowerAge}</td>
+                <td>${mortgage.minCreditPeriod} mies.</td>
                 <td>${mortgage.maxCreditPeriod} mies.</td>
                 <td style="text-align: center"><a href="${pageContext.request.contextPath}/mortgage/edit?id=${mortgage.id}&bankId=${mortgage.bank.id}" class="btn btn-sm btn-outline-primary rounded">Edycja</a>
                     <a href="${pageContext.request.contextPath}/mortgage/delete?id=${mortgage.id}&bankId=${mortgage.bank.id}" class="btn btn-sm btn-outline-danger rounded" id="remove">Usuń</a></td>
@@ -52,7 +56,7 @@
             </tr>
         </c:forEach>
         <tr>
-            <td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td>
+            <td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td>
             <td><a href="${pageContext.request.contextPath}/mortgage/add?bankId=${bank.get().id}" class="btn btn-sm btn-outline-success rounded">Dodaj nową ofertę</a></td>
             <td></td>
         </tr>

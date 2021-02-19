@@ -46,6 +46,10 @@ public class Loan {
 
     @NotNull
     @Min(value = 1)
+    private Integer minCreditPeriod;
+
+    @NotNull
+    @Min(value = 1)
     private Integer maxCreditPeriod;
 
     @ManyToOne
@@ -56,7 +60,7 @@ public class Loan {
     public Loan() {
     }
 
-    public Loan(Long id, BigDecimal creditRate, BigDecimal insurance, int maxBorrowerAge, int maxCreditAmount, int maxCreditPeriod, int minBorrowerAge, int minCreditAmount, String offer, BigDecimal serviceCharge, Bank bank) {
+    public Loan(Long id, BigDecimal creditRate, BigDecimal insurance, int maxBorrowerAge, int maxCreditAmount, int maxCreditPeriod, int minBorrowerAge, int minCreditAmount, int minCreditPeriod, String offer, BigDecimal serviceCharge, Bank bank) {
         this.id = id;
         this.creditRate = creditRate;
         this.maxBorrowerAge = maxBorrowerAge;
@@ -64,6 +68,7 @@ public class Loan {
         this.maxCreditPeriod = maxCreditPeriod;
         this.minBorrowerAge = minBorrowerAge;
         this.minCreditAmount = minCreditAmount;
+        this.minCreditPeriod = minCreditPeriod;
         this.insurance = insurance;
         this.offer = offer;
         this.serviceCharge = serviceCharge;
@@ -156,5 +161,13 @@ public class Loan {
 
     public void setBank(Bank bank) {
         this.bank = bank;
+    }
+
+    public Integer getMinCreditPeriod() {
+        return minCreditPeriod;
+    }
+
+    public void setMinCreditPeriod(Integer minCreditPeriod) {
+        this.minCreditPeriod = minCreditPeriod;
     }
 }

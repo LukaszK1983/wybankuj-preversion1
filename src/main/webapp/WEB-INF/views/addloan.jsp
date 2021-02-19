@@ -26,6 +26,7 @@
         <tr><td>Max kwota: </td><td><form:input path="maxCreditAmount" /></td><td><form:errors path="maxCreditAmount" style="color: red" /></td></tr>
         <tr><td>Min wiek: </td><td><form:input path="minBorrowerAge" /></td><td><form:errors path="minBorrowerAge" style="color: red" /></td></tr>
         <tr><td>Max wiek: </td><td><form:input path="maxBorrowerAge" /></td><td><form:errors path="maxBorrowerAge" style="color: red" /></td></tr>
+        <tr><td>Max okres: </td><td><form:input path="minCreditPeriod" /></td><td><form:errors path="minCreditPeriod" style="color: red" /></td></tr>
         <tr><td>Max okres: </td><td><form:input path="maxCreditPeriod" /></td><td><form:errors path="maxCreditPeriod" style="color: red" /></td></tr>
         <form:hidden path="bank.id" value="${bank.get().id}"/>
         <input type="hidden" name="bankId" value="${bank.get().id}" />
