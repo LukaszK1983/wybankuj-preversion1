@@ -160,15 +160,15 @@
             </tr>
             <tr>
                 <td class="td-compare-offers">Ubezpieczenie:</td>
-                <td class="td-compare-offers-red">${calculations1.mortgage.insurance}%, czyli <fmt:formatNumber type="currency" >${calculations1.insurance}</fmt:formatNumber></td>
+                <td class="td-compare-offers-red"><fmt:formatNumber type="currency" >${calculations1.insurance}</fmt:formatNumber></td>
                 <c:choose>
                     <c:when test="${testMortgage2}">
-                        <td class="td-compare-offers-red">${calculations2.mortgage.insurance}%, czyli <fmt:formatNumber type="currency" >${calculations2.insurance}</fmt:formatNumber></td>
+                        <td class="td-compare-offers-red"><fmt:formatNumber type="currency" >${calculations2.insurance}</fmt:formatNumber></td>
                     </c:when>
                 </c:choose>
                 <c:choose>
                     <c:when test="${testMortgage3}">
-                        <td class="td-compare-offers-red">${calculations3.mortgage.insurance}%, czyli <fmt:formatNumber type="currency" >${calculations3.insurance}</fmt:formatNumber></td>
+                        <td class="td-compare-offers-red"><fmt:formatNumber type="currency" >${calculations3.insurance}</fmt:formatNumber></td>
                     </c:when>
                 </c:choose>
             </tr>
