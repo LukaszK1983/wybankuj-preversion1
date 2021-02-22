@@ -14,8 +14,8 @@ public interface MortgageRepository extends CrudRepository<Mortgage, Long> {
 
     List<Mortgage> findAllByBankId(Long bankId);
 
-    @Query("SELECT m FROM Mortgage m WHERE m.minCreditAmount <= :amount AND m.maxCreditAmount >= :amount AND m.minCreditPeriod <= :creditPeriod AND m.maxCreditPeriod >= :creditPeriod AND m.minBorrowerAge <= :age AND m.maxBorrowerAge >= :age AND m.contributionPercent <= :contributionPercent AND m.maxContributionPercent => :contributionPercent AND m.maxBorrowerAge - :age >= :creditPeriod / 12")
-    List<Mortgage> findAllByParameters(int amount, int creditPeriod, int age, BigDecimal contributionPercent);
+//    @Query("SELECT m FROM Mortgage m WHERE m.minCreditAmount <= :amount AND m.maxCreditAmount >= :amount AND m.minCreditPeriod <= :creditPeriod AND m.maxCreditPeriod >= :creditPeriod AND m.minBorrowerAge <= :age AND m.maxBorrowerAge >= :age AND m.contributionPercent <= :contributionPercent AND m.maxContributionPercent => :contributionPercent AND m.maxBorrowerAge - :age >= :creditPeriod / 12")
+//    List<Mortgage> findAllByParameters(int amount, int creditPeriod, int age, BigDecimal contributionPercent);
 
     @Query("SELECT m FROM Mortgage m WHERE m.minCreditAmount <= :amount AND m.maxCreditAmount >= :amount AND m.minCreditPeriod <= :creditPeriod AND m.maxCreditPeriod >= :creditPeriod AND m.minBorrowerAge <= :age AND m.maxBorrowerAge >= :age AND m.insurance = 0.0 AND m.contributionPercent <= :contributionPercent AND m.maxContributionPercent => :contributionPercent AND m.maxBorrowerAge - :age >= :creditPeriod / 12")
     List<Mortgage> findAllByParametersWithoutInsurance(int amount, int creditPeriod, int age, BigDecimal contributionPercent);
