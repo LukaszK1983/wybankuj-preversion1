@@ -95,8 +95,8 @@ public class HomeLoanController {
         return "loandetails";
     }
 
-    @ModelAttribute("answears")
-    public List<String> answears() {
+    @ModelAttribute("answers")
+    public List<String> answers() {
         return List.of("TAK", "NIE");
     }
 

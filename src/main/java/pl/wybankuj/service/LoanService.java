@@ -79,7 +79,7 @@ public class LoanService {
 
     public List<Loan> chooseOffers(String chooseInsurance, String chooseServiceCharge,
                                    int amount, int creditPeriod, int age) {
-        List<Loan> loans = new ArrayList<>();
+        List<Loan> loans;
         if (chooseInsurance.equals("no") && chooseServiceCharge.equals("no")) {
             loans = loanRepository.findAllByParametersWithoutInsuranceAndServiceCharge(amount, creditPeriod, age);
         } else if (chooseInsurance.equals("no") && chooseServiceCharge.equals("yes")) {
