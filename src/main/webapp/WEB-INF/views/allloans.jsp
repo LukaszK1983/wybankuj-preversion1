@@ -39,7 +39,7 @@
                 <td>${loan.offer}</td>
                 <td>${loan.creditRate}%</td>
                 <td>${loan.serviceCharge}%</td>
-                <td>${loan.insurance}%</td>
+                <td>${loan.insurance}% {loan.insuranceFrequency}</td>
                 <td>${loan.minCreditAmount} zł</td>
                 <td>${loan.maxCreditAmount} zł</td>
                 <td>${loan.minBorrowerAge}</td>

@@ -28,6 +28,8 @@ public class Loan {
     @DecimalMin(value = "0.0")
     private BigDecimal insurance;
 
+    private String insuranceFrequency;
+
     @NotNull
     @Min(value = 1)
     private Integer minCreditAmount;
@@ -60,7 +62,7 @@ public class Loan {
     public Loan() {
     }
 
-    public Loan(Long id, BigDecimal creditRate, BigDecimal insurance, int maxBorrowerAge, int maxCreditAmount, int maxCreditPeriod, int minBorrowerAge, int minCreditAmount, int minCreditPeriod, String offer, BigDecimal serviceCharge, Bank bank) {
+    public Loan(Long id, BigDecimal creditRate, BigDecimal insurance, String insuranceFrequency, int maxBorrowerAge, int maxCreditAmount, int maxCreditPeriod, int minBorrowerAge, int minCreditAmount, int minCreditPeriod, String offer, BigDecimal serviceCharge, Bank bank) {
         this.id = id;
         this.creditRate = creditRate;
         this.maxBorrowerAge = maxBorrowerAge;
@@ -70,6 +72,7 @@ public class Loan {
         this.minCreditAmount = minCreditAmount;
         this.minCreditPeriod = minCreditPeriod;
         this.insurance = insurance;
+        this.insuranceFrequency = insuranceFrequency;
         this.offer = offer;
         this.serviceCharge = serviceCharge;
         this.bank = bank;
@@ -169,5 +172,13 @@ public class Loan {
 
     public void setMinCreditPeriod(Integer minCreditPeriod) {
         this.minCreditPeriod = minCreditPeriod;
+    }
+
+    public String getInsuranceFrequency() {
+        return insuranceFrequency;
+    }
+
+    public void setInsuranceFrequency(String insuranceFrequency) {
+        this.insuranceFrequency = insuranceFrequency;
     }
 }

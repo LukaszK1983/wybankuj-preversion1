@@ -41,7 +41,7 @@
                 <td>${mortgage.offer}</td>
                 <td>${mortgage.creditRate}%</td>
                 <td>${mortgage.serviceCharge}%</td>
-                <td>${mortgage.insurance}%</td>
+                <td>${mortgage.insurance}% {mortgage.insuranceFrequency}</td>
                 <td>${mortgage.contributionPercent}%</td>
                 <td>${mortgage.maxContributionPercent}%</td>
                 <td>${mortgage.minCreditAmount} zł</td>

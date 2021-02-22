@@ -23,6 +23,7 @@
         <tr><td>Oprocentowanie: </td><td><form:input path="creditRate" /></td><td><form:errors path="creditRate" style="color: red" /></td></tr>
         <tr><td>Prowizja: </td><td><form:input path="serviceCharge" /></td><td><form:errors path="serviceCharge" style="color: red" /></td></tr>
         <tr><td>Ubezpieczenie: </td><td><form:input path="insurance" /></td><td><form:errors path="insurance" style="color: red" /></td></tr>
+        <tr><td>Ubezpieczenie: </td><td><form:input path="insuranceFrequency" /></td><td><form:errors path="insuranceFrequency" style="color: red" /></td></tr>
         <tr><td>Min kwota: </td><td><form:input path="minCreditAmount" /></td><td><form:errors path="minCreditAmount" style="color: red" /></td></tr>
         <tr><td>Max kwota: </td><td><form:input path="maxCreditAmount" /></td><td><form:errors path="maxCreditAmount" style="color: red" /></td></tr>
         <tr><td>Min wiek: </td><td><form:input path="minBorrowerAge" /></td><td><form:errors path="minBorrowerAge" style="color: red" /></td></tr>

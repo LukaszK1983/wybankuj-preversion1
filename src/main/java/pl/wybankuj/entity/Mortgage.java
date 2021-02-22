@@ -28,6 +28,8 @@ public class Mortgage {
     @DecimalMin(value = "0.0")
     private BigDecimal insurance;
 
+    private String insuranceFrequency;
+
     @NotNull
     @DecimalMin(value = "10.0")
     private BigDecimal contributionPercent;
@@ -68,12 +70,13 @@ public class Mortgage {
     public Mortgage() {
     }
 
-    public Mortgage(Long id, BigDecimal contributionPercent, BigDecimal maxContributionPercent, BigDecimal creditRate, BigDecimal insurance, int maxBorrowerAge, int maxCreditAmount, int maxCreditPeriod, int minBorrowerAge, int minCreditAmount, int minCreditPeriod, String offer, BigDecimal serviceCharge, Bank bank) {
+    public Mortgage(Long id, BigDecimal contributionPercent, BigDecimal maxContributionPercent, BigDecimal creditRate, BigDecimal insurance, String insuranceFrequency, int maxBorrowerAge, int maxCreditAmount, int maxCreditPeriod, int minBorrowerAge, int minCreditAmount, int minCreditPeriod, String offer, BigDecimal serviceCharge, Bank bank) {
         this.id = id;
         this.contributionPercent = contributionPercent;
         this.maxContributionPercent = maxContributionPercent;
         this.creditRate = creditRate;
         this.insurance = insurance;
+        this.insuranceFrequency = insuranceFrequency;
         this.maxBorrowerAge = maxBorrowerAge;
         this.maxCreditAmount = maxCreditAmount;
         this.maxCreditPeriod = maxCreditPeriod;
@@ -195,5 +198,13 @@ public class Mortgage {
 
     public void setMinCreditPeriod(Integer minCreditPeriod) {
         this.minCreditPeriod = minCreditPeriod;
+    }
+
+    public String getInsuranceFrequency() {
+        return insuranceFrequency;
+    }
+
+    public void setInsuranceFrequency(String insuranceFrequency) {
+        this.insuranceFrequency = insuranceFrequency;
     }
 }
