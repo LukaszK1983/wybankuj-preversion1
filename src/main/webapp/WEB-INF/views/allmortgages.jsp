@@ -41,7 +41,15 @@
                 <td>${mortgage.offer}</td>
                 <td>${mortgage.creditRate}%</td>
                 <td>${mortgage.serviceCharge}%</td>
-                <td>${mortgage.insurance}% {mortgage.insuranceFrequency}</td>
+                <td>${mortgage.insurance}%
+                    <c:choose>
+                        <c:when test="${mortgage.insuranceFrequency == 'brak'}">
+                        </c:when>
+                        <c:otherwise>
+                            ${mortgage.insuranceFrequency}
+                        </c:otherwise>
+                    </c:choose>
+                </td>
                 <td>${mortgage.contributionPercent}%</td>
                 <td>${mortgage.maxContributionPercent}%</td>
                 <td>${mortgage.minCreditAmount} zł</td>

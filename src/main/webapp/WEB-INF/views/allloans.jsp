@@ -39,7 +39,15 @@
                 <td>${loan.offer}</td>
                 <td>${loan.creditRate}%</td>
                 <td>${loan.serviceCharge}%</td>
-                <td>${loan.insurance}% {loan.insuranceFrequency}</td>
+                <td>${loan.insurance}%
+                    <c:choose>
+                        <c:when test="${loan.insuranceFrequency == 'brak'}">
+                        </c:when>
+                        <c:otherwise>
+                            ${loan.insuranceFrequency}
+                        </c:otherwise>
+                    </c:choose>
+                </td>
                 <td>${loan.minCreditAmount} zł</td>
                 <td>${loan.maxCreditAmount} zł</td>
                 <td>${loan.minBorrowerAge}</td>
