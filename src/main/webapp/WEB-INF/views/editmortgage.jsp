@@ -23,7 +23,11 @@
         <tr><td>Oprocentowanie: </td><td><form:input path="creditRate" /></td><td><form:errors path="creditRate" style="color: red" /></td></tr>
         <tr><td>Prowizja: </td><td><form:input path="serviceCharge" /></td><td><form:errors path="serviceCharge" style="color: red" /></td></tr>
         <tr><td>Ubezpieczenie: </td><td><form:input path="insurance" /></td><td><form:errors path="insurance" style="color: red" /></td></tr>
-        <tr><td>Składka ubezpieczenia: </td><td><form:input path="insuranceFrequency" /></td><td><form:errors path="insuranceFrequency" style="color: red" /></td></tr>
+        <tr>
+            <td>Składka ubezpieczenia: </td>
+            <td><form:select path="insuranceFrequency" items="${frequency}" /></td>
+            <td><form:errors path="insuranceFrequency" style="color: red" /></td>
+        </tr>
         <tr><td>Min wkład własny: </td><td><form:input path="contributionPercent" /></td><td><form:errors path="contributionPercent" style="color: red" /></td></tr>
         <tr><td>Max wkład własny: </td><td><form:input path="maxContributionPercent" /></td><td><form:errors path="maxContributionPercent" style="color: red" /></td></tr>
         <tr><td>Min kwota: </td><td><form:input path="minCreditAmount" /></td><td><form:errors path="minCreditAmount" style="color: red" /></td></tr>

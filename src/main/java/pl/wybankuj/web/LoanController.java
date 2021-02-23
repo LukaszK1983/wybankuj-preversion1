@@ -12,6 +12,7 @@ import pl.wybankuj.repository.BankRepository;
 import pl.wybankuj.repository.LoanRepository;
 
 import javax.validation.Valid;
+import java.util.Arrays;
 import java.util.List;
 
 @Controller
@@ -80,5 +81,10 @@ public class LoanController {
     @ModelAttribute("banks")
     public List<Bank> banks() {
         return (List<Bank>) bankRepository.findAll();
+    }
+
+    @ModelAttribute("frequency")
+    public List<String> frequency() {
+        return Arrays.asList("brak", "mies.", "rocznie", "jednorazowo");
     }
 }
